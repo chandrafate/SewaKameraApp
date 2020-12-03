@@ -1,8 +1,9 @@
-package com.candra.sewakameraapp
+package com.candra.sewakameraapp.onboarding
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.viewpager2.widget.ViewPager2
+import com.candra.sewakameraapp.R
 import kotlinx.android.synthetic.main.activity_on_boarding_one.*
 import me.relex.circleindicator.CircleIndicator3
 
