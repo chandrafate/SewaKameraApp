@@ -1,8 +1,9 @@
-package com.candra.sewakameraapp
+package com.candra.sewakameraapp.sign
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.candra.sewakameraapp.R
 import kotlinx.android.synthetic.main.activity_sign_up.*
 
 class SignUpActivity : AppCompatActivity() {

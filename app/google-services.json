@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "460517764859",
+    "firebase_url": "https://rentalkamera-c3a0f.firebaseio.com",
+    "project_id": "rentalkamera-c3a0f",
+    "storage_bucket": "rentalkamera-c3a0f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:460517764859:android:63035a64eac8b48eadca5e",
+        "android_client_info": {
+          "package_name": "com.candra.sewakameraapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "460517764859-6vcjl1v1kqjep8n6slu3dn5f4igcrjdu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzsnwx1IRWVlWikLBYkDglCyL4AF36cyI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "460517764859-6vcjl1v1kqjep8n6slu3dn5f4igcrjdu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
