@@ -7,9 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.candra.sewakameraapp.R
+import com.candra.sewakameraapp.utils.Preferences
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
+
+    lateinit var preferences: Preferences
 
     private var dataList = ArrayList<Kategori>()
 
@@ -23,6 +26,10 @@ class HomeFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
+        preferences = Preferences(activity!!.applicationContext)
+
+        tv_nama.setText(preferences.getValues("nama"))
 
 
         loadDummyData()
