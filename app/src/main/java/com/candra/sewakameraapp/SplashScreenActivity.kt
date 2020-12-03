@@ -12,7 +12,7 @@ class SplashScreenActivity : AppCompatActivity() {
 
         var handler = Handler()
         handler.postDelayed({
-            var intent = Intent(this, OnBoardingOneActivity::class.java)
+            var intent = Intent(this, SignInActivity::class.java)
             startActivity(intent)
             finish()
         }, 3000)
