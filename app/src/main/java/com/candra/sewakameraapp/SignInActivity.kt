@@ -13,5 +13,9 @@ class SignInActivity : AppCompatActivity() {
         btn_sign_up.setOnClickListener {
             startActivity(Intent(this, SignUpActivity::class.java))
         }
+
+        btn_sign_in.setOnClickListener {
+            startActivity(Intent(this, HomeActivity::class.java))
+        }
     }
 }

@@ -12,14 +12,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="blue_background">#13153B</color>
-    <color name="white_background">#FAFAFA</color>
+    <color name="white_background">#F1F2F3</color>
     <color name="pink_btn">#F23B5F</color>
     <color name="gray">#253A4B</color>
     <color name="light_gray">#E8EBEC</color>
     <color name="green">#6ebfc2</color>
     <color name="light_blue">#8B93B4</color>
-
-
-
 
 </resources>
