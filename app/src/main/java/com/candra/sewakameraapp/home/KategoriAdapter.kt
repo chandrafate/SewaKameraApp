@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.candra.sewakameraapp.R
+import com.candra.sewakameraapp.kategori.Kategori
 
 class KategoriAdapter(private var data: List<Kategori>,
                       private val listener: (Kategori) -> Unit)
@@ -36,8 +37,8 @@ class KategoriAdapter(private var data: List<Kategori>,
 
     class LeagueViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-        private val ivkategori: ImageView = view.findViewById(R.id.iv_kategori)
-        private val tvkategori: TextView = view.findViewById(R.id.tv_kategori)
+        private val ivkategori: ImageView = view.findViewById(R.id.iv_item)
+        private val tvkategori: TextView = view.findViewById(R.id.tv_nama)
 
         fun bindItem(data: Kategori, listener: (Kategori) -> Unit, context : Context, position : Int) {
 

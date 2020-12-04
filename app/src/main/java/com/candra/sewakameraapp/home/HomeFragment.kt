@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.candra.sewakameraapp.kategori.MenuKategoriActivity
 import com.candra.sewakameraapp.R
+import com.candra.sewakameraapp.kategori.Kategori
 import com.candra.sewakameraapp.utils.Preferences
 import kotlinx.android.synthetic.main.fragment_home.*
 

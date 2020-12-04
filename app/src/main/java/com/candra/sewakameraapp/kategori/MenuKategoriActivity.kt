@@ -1,11 +1,11 @@
 package com.candra.sewakameraapp.kategori
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
+import com.candra.sewakameraapp.produk.ListItemActivity
 import com.candra.sewakameraapp.R
-import com.candra.sewakameraapp.home.Kategori
-import com.candra.sewakameraapp.home.KategoriAdapter
 import kotlinx.android.synthetic.main.activity_menu_kategori.*
 
 class MenuKategoriActivity : AppCompatActivity() {
@@ -19,7 +19,8 @@ class MenuKategoriActivity : AppCompatActivity() {
         rv_menu_kategori.layoutManager = GridLayoutManager(this, 2)
         dummydata()
         rv_menu_kategori.adapter = MenuKategoriAdapter(dataList) {
-
+            val intent = Intent(this, ListItemActivity::class.java).putExtra("kategori", it)
+            startActivity(intent)
         }
 
         iv_back.setOnClickListener {
