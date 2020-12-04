@@ -73,6 +73,7 @@ class SignUpActivity : AppCompatActivity() {
         member.nama = sNama
         member.password = sPassword
         member.username = sUsername
+        member.status = "tidak"
 
         if (sUsername != null) {
             checkingUsername(sUsername, member)

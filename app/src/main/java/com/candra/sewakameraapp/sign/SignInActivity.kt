@@ -58,7 +58,7 @@ class SignInActivity : AppCompatActivity() {
     }
 
     private fun pushLogin(iUsername: String, iPassword: String) {
-        mDatabase.child(iUsername).addValueEventListener(object : ValueEventListener {
+        mDatabase.child(iUsername).addListenerForSingleValueEvent(object : ValueEventListener {
 
             override fun onDataChange(dataSnapshot: DataSnapshot) {
 
