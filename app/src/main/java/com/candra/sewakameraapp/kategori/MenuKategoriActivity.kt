@@ -23,7 +23,7 @@ class MenuKategoriActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        iv_back.setOnClickListener {
+        iv_back_list_item.setOnClickListener {
             finish()
         }
 

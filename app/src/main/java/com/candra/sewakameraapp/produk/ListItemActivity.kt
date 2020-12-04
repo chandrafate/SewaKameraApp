@@ -1,5 +1,6 @@
 package com.candra.sewakameraapp.produk
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -29,6 +30,10 @@ class ListItemActivity : AppCompatActivity() {
 
         tv_nama.text = data?.nama
 
+        iv_back.setOnClickListener {
+            finish()
+        }
+
 
         rc_list_item.layoutManager = LinearLayoutManager(this)
 
@@ -52,8 +57,8 @@ class ListItemActivity : AppCompatActivity() {
                 }
 
                 rc_list_item.adapter = ListItemAdapter(dataList) {
-//                    val intent = Intent(this, ListItemActivity::class.java).putExtra("item", it)
-//                    startActivity(intent)
+                    val intent = Intent(this@ListItemActivity, DetailProdukActivity::class.java).putExtra("detailitem", it)
+                    startActivity(intent)
                 }
             }
 

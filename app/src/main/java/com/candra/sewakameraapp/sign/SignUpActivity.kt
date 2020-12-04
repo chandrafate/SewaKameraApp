@@ -28,7 +28,7 @@ class SignUpActivity : AppCompatActivity() {
         mDatabase = FirebaseDatabase.getInstance().getReference("member")
         preferences = Preferences(this)
 
-        iv_back.setOnClickListener {
+        iv_back_list_item.setOnClickListener {
             startActivity(Intent(this, SignInActivity::class.java))
         }
 
