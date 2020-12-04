@@ -15,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.noActionBar">
-        <activity android:name=".produk.DetailProdukActivity"></activity>
+        <activity android:name=".KeranjangActivity"></activity>
+        <activity android:name=".produk.DetailProdukActivity" />
         <activity android:name=".produk.ListItemActivity" />
         <activity android:name=".kategori.MenuKategoriActivity" />
         <activity android:name=".HomeActivity" />

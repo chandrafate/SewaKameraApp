@@ -3,6 +3,7 @@ package com.candra.sewakameraapp.produk
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.candra.sewakameraapp.Keranjang
 import com.candra.sewakameraapp.R
 import com.candra.sewakameraapp.utils.Preferences
 import com.google.firebase.database.DatabaseReference
@@ -50,7 +51,9 @@ class DetailProdukActivity : AppCompatActivity() {
     }
 
     private fun insertKeranjang(data : String) {
-        mDatabase.child(preferences.getValues("username").toString()).child("keranjang").push().setValue(data)
+        var keranjang = Keranjang()
+        keranjang.id = data
+        mDatabase.child(preferences.getValues("username").toString()).child("keranjang").push().setValue(keranjang)
     }
 
 }

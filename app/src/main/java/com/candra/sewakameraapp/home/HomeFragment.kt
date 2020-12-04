@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.candra.sewakameraapp.KeranjangActivity
 import com.candra.sewakameraapp.kategori.MenuKategoriActivity
 import com.candra.sewakameraapp.R
 import com.candra.sewakameraapp.kategori.Kategori
@@ -36,6 +37,10 @@ class HomeFragment : Fragment() {
 
         btn_kategori.setOnClickListener {
             startActivity(Intent(context, MenuKategoriActivity::class.java))
+        }
+
+        iv_keranjang.setOnClickListener {
+            startActivity(Intent(context, KeranjangActivity::class.java))
         }
 
 
