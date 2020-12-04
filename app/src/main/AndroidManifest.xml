@@ -15,7 +15,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.noActionBar">
-        <activity android:name=".MenuKategoriActivity"></activity>
+        <activity android:name=".kategori.MenuKategoriActivity"></activity>
         <activity android:name=".HomeActivity" />
         <activity android:name=".sign.SignUpActivity" />
         <activity android:name=".sign.SignInActivity" />

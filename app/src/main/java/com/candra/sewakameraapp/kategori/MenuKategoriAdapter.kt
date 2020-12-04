@@ -1,4 +1,4 @@
-package com.candra.sewakameraapp.home
+package com.candra.sewakameraapp.kategori
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -9,30 +9,31 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.candra.sewakameraapp.R
+import com.candra.sewakameraapp.home.Kategori
+import com.candra.sewakameraapp.home.KategoriAdapter
 
-class KategoriAdapter(private var data: List<Kategori>,
-                      private val listener: (Kategori) -> Unit)
-    : RecyclerView.Adapter<KategoriAdapter.LeagueViewHolder>() {
+class MenuKategoriAdapter(private var data: List<Kategori>,
+                          private val listener: (Kategori) -> Unit)
+    : RecyclerView.Adapter<MenuKategoriAdapter.LeagueViewHolder>() {
 
     lateinit var ContextAdapter : Context
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): KategoriAdapter.LeagueViewHolder {
+    ): MenuKategoriAdapter.LeagueViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         ContextAdapter = parent.context
-        val inflatedView: View = layoutInflater.inflate(R.layout.row_item_kategori, parent, false)
+        val inflatedView: View = layoutInflater.inflate(R.layout.row_item_menu_kategori, parent, false)
 
         return LeagueViewHolder(inflatedView)
     }
 
-    override fun onBindViewHolder(holder: KategoriAdapter.LeagueViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MenuKategoriAdapter.LeagueViewHolder, position: Int) {
         holder.bindItem(data[position], listener, ContextAdapter, position)
     }
 
-//    limit yag di keluarkan
-    override fun getItemCount(): Int = 3
+    override fun getItemCount(): Int = data.size
 
     class LeagueViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
