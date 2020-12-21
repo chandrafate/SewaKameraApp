@@ -15,7 +15,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.noActionBar">
-        <activity android:name=".KeranjangActivity"></activity>
+        <activity android:name=".checkout.SuccessCheckoutActivity"></activity>
+        <activity android:name=".checkout.CheckoutActivity" />
+        <activity android:name=".keranjang.KeranjangActivity" />
         <activity android:name=".produk.DetailProdukActivity" />
         <activity android:name=".produk.ListItemActivity" />
         <activity android:name=".kategori.MenuKategoriActivity" />

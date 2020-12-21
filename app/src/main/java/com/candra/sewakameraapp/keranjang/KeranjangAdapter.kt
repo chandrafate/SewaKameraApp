@@ -1,4 +1,4 @@
-package com.candra.sewakameraapp
+package com.candra.sewakameraapp.keranjang
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.candra.sewakameraapp.R
 import com.candra.sewakameraapp.produk.Produk
 import java.text.NumberFormat
 import java.util.*

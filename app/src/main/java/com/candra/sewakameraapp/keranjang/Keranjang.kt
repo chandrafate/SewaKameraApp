@@ -1,4 +1,4 @@
-package com.candra.sewakameraapp
+package com.candra.sewakameraapp.keranjang
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
