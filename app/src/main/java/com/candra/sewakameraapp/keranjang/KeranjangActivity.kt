@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.candra.sewakameraapp.R
 import com.candra.sewakameraapp.checkout.Booking
 import com.candra.sewakameraapp.checkout.CheckoutActivity
-import com.candra.sewakameraapp.produk.Produk
+import com.candra.sewakameraapp.Barang.Barang
 import com.candra.sewakameraapp.utils.Preferences
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_keranjang.*
@@ -29,7 +29,7 @@ class KeranjangActivity : AppCompatActivity() {
     lateinit var mDatabase: DatabaseReference
     lateinit var mDatabase2: DatabaseReference
 
-    var dataList = ArrayList<Produk>()
+    var dataList = ArrayList<Barang>()
     var idProduk = ArrayList<Keranjang>()
 
     var hari = 0
@@ -60,7 +60,7 @@ class KeranjangActivity : AppCompatActivity() {
             finish()
         }
 
-        rc_keranjang.layoutManager = LinearLayoutManager(this)
+        rc_booking_item.layoutManager = LinearLayoutManager(this)
 
         getData()
 
@@ -112,7 +112,7 @@ class KeranjangActivity : AppCompatActivity() {
 
         }
 
-        btn_bayar.setOnClickListener {
+        btn_lanjut.setOnClickListener {
             var booking = Booking()
             booking.username = preferences.getValues("username").toString()
             booking.status = "pending"
@@ -135,8 +135,8 @@ class KeranjangActivity : AppCompatActivity() {
 
         totalHargaCheckout = totalHargaBarang * days.toInt()
 
-        btn_bayar.setText("Lanjut Pembayaran(${idProduk.size})")
-        btn_bayar.visibility = View.VISIBLE
+        btn_lanjut.setText("Lanjut Pembayaran(${idProduk.size})")
+        btn_lanjut.visibility = View.VISIBLE
     }
 
     private fun getDateCalender() {
@@ -157,6 +157,15 @@ class KeranjangActivity : AppCompatActivity() {
                     val keranjang = getdatasnapshot.getValue(Keranjang::class.java)
                     idProduk.add(keranjang!!)
                 }
+
+                if (idProduk.isEmpty()) {
+                    et_tgl_in.visibility = View.INVISIBLE
+                    et_tgl_out.visibility = View.INVISIBLE
+                    textView9.visibility = View.INVISIBLE
+                    imageView3.visibility = View.INVISIBLE
+                    textView14.visibility = View.INVISIBLE
+                    textView15.visibility = View.INVISIBLE
+                }
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -174,7 +183,7 @@ class KeranjangActivity : AppCompatActivity() {
 
                     for (getdatasnapshot in snapshot.getChildren()) {
 
-                        val produk = getdatasnapshot.getValue(Produk::class.java)
+                        val produk = getdatasnapshot.getValue(Barang::class.java)
 
                         if (produk!!.id.equals(it.id)) {
                             dataList.add(produk!!)
@@ -184,7 +193,7 @@ class KeranjangActivity : AppCompatActivity() {
                 }
 
 
-                rc_keranjang.adapter = KeranjangAdapter(dataList) {
+                rc_booking_item.adapter = KeranjangAdapter(dataList) {
 //                    val intent = Intent(this@KeranjangActivity, DetailProdukActivity::class.java)
 //                    startActivity(intent)
                 }

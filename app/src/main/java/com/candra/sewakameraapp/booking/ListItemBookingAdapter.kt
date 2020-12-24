@@ -1,4 +1,4 @@
-package com.candra.sewakameraapp.produk
+package com.candra.sewakameraapp.booking
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,13 +8,14 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.candra.sewakameraapp.Barang.Barang
 import com.candra.sewakameraapp.R
 import java.text.NumberFormat
 import java.util.*
 
-class ListItemAdapter(private var data: List<Produk>,
-                      private val listener: (Produk) -> Unit)
-    : RecyclerView.Adapter<ListItemAdapter.LeagueViewHolder>() {
+class ListItemBookingAdapter(private var data: List<Barang>,
+                             private val listener: (Barang) -> Unit)
+    : RecyclerView.Adapter<ListItemBookingAdapter.LeagueViewHolder>() {
 
     lateinit var ContextAdapter : Context
 
@@ -24,7 +25,7 @@ class ListItemAdapter(private var data: List<Produk>,
     ): LeagueViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         ContextAdapter = parent.context
-        val inflatedView: View = layoutInflater.inflate(R.layout.row_item_produk, parent, false)
+        val inflatedView: View = layoutInflater.inflate(R.layout.row_item_keranjang, parent, false)
 
         return LeagueViewHolder(inflatedView)
     }
@@ -38,10 +39,10 @@ class ListItemAdapter(private var data: List<Produk>,
     class LeagueViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         private val ivitem: ImageView = view.findViewById(R.id.iv_item)
-        private val tvnama: TextView = view.findViewById(R.id.tv_nama)
+        private val tvnama: TextView = view.findViewById(R.id.tv_jumlah_item)
         private val tvharga: TextView = view.findViewById(R.id.tv_harga)
 
-        fun bindItem(data: Produk, listener: (Produk) -> Unit, context : Context, position : Int) {
+        fun bindItem(data: Barang, listener: (Barang) -> Unit, context : Context, position : Int) {
 
             val localeID = Locale("in", "ID")
             val formatRupiah = NumberFormat.getCurrencyInstance(localeID)

@@ -1,4 +1,4 @@
-package com.candra.sewakameraapp.produk
+package com.candra.sewakameraapp.Barang
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.activity_detail_produk.*
 import java.text.NumberFormat
 import java.util.*
 
-class DetailProdukActivity : AppCompatActivity() {
+class DetailBarangActivity : AppCompatActivity() {
 
     lateinit var mDatabase: DatabaseReference
     lateinit var preferences: Preferences
@@ -24,9 +24,9 @@ class DetailProdukActivity : AppCompatActivity() {
         mDatabase = FirebaseDatabase.getInstance().getReference("member")
         preferences = Preferences(this)
 
-        val data = intent.getParcelableExtra<Produk>("detailitem")
+        val data = intent.getParcelableExtra<Barang>("detailitem")
 
-        tv_nama.text = data?.nama
+        tv_jumlah_item.text = data?.nama
         tv_stok.text = data?.stok.toString()
         tv_total_sewa.text = data?.totalSewa.toString()
         tv_jenis.text = data?.jenis

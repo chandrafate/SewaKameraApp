@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        app:srcCompat="@drawable/ic_close" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView11"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="30dp"
+        android:text="Konfirmasi Pembayaran"
+        android:textColor="@color/blue_background"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView8"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="40dp"
+        android:text="1. Pilih Pembayaran yang digunakan"
+        android:textAlignment="viewStart"
+        android:textColor="@color/blue_background"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView32"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView11"
+        android:layout_marginTop="97dp"
+        android:layout_marginStart="10dp"
+        android:text="2. Upload Bukti Pembayaran"
+        android:textColor="@color/blue_background"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView32"
+        android:layout_marginTop="48dp"
+        android:layout_marginStart="10dp"
+        android:background="@color/green"
+        android:text="Browse"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/textView33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/button2"
+        android:layout_marginStart="7dp"
+        android:text="500.jpg"
+        android:layout_marginTop="15dp"
+        android:layout_toEndOf="@+id/button2" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textAllCaps="false"
+        android:background="@drawable/btn_secondary"
+        android:layout_marginHorizontal="24dp"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/button2"
+        android:layout_marginTop="91dp"
+        android:text="Kirim" />
+
+
+</RelativeLayout>

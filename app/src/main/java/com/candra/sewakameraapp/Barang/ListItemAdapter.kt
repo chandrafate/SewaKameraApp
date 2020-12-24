@@ -1,4 +1,4 @@
-package com.candra.sewakameraapp.keranjang
+package com.candra.sewakameraapp.Barang
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -9,13 +9,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.candra.sewakameraapp.R
-import com.candra.sewakameraapp.Barang.Barang
 import java.text.NumberFormat
 import java.util.*
 
-class KeranjangAdapter(private var data: List<Barang>,
-                       private val listener: (Barang) -> Unit)
-    : RecyclerView.Adapter<KeranjangAdapter.LeagueViewHolder>() {
+class ListItemAdapter(private var data: List<Barang>,
+                      private val listener: (Barang) -> Unit)
+    : RecyclerView.Adapter<ListItemAdapter.LeagueViewHolder>() {
 
     lateinit var ContextAdapter : Context
 
@@ -25,7 +24,7 @@ class KeranjangAdapter(private var data: List<Barang>,
     ): LeagueViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         ContextAdapter = parent.context
-        val inflatedView: View = layoutInflater.inflate(R.layout.row_item_keranjang, parent, false)
+        val inflatedView: View = layoutInflater.inflate(R.layout.row_item_produk, parent, false)
 
         return LeagueViewHolder(inflatedView)
     }

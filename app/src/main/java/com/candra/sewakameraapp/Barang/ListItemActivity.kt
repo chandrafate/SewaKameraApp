@@ -1,4 +1,4 @@
-package com.candra.sewakameraapp.produk
+package com.candra.sewakameraapp.Barang
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.activity_menu_kategori.*
 class ListItemActivity : AppCompatActivity() {
 
     lateinit var mDatabase: DatabaseReference
-    private var dataList = ArrayList<Produk>()
+    private var dataList = ArrayList<Barang>()
 
     private var id: Int = 0
 
@@ -28,7 +28,7 @@ class ListItemActivity : AppCompatActivity() {
 
         mDatabase = FirebaseDatabase.getInstance().getReference("produk")
 
-        tv_nama.text = data?.nama
+        tv_jumlah_item.text = data?.nama
 
         iv_back.setOnClickListener {
             finish()
@@ -48,7 +48,7 @@ class ListItemActivity : AppCompatActivity() {
 
                 for (getdatasnapshot in snapshot.getChildren()) {
 
-                    val produk = getdatasnapshot.getValue(Produk::class.java)
+                    val produk = getdatasnapshot.getValue(Barang::class.java)
 
                     if (produk!!.kategori == id) {
                         dataList.add(produk!!)
@@ -57,7 +57,7 @@ class ListItemActivity : AppCompatActivity() {
                 }
 
                 rc_list_item.adapter = ListItemAdapter(dataList) {
-                    val intent = Intent(this@ListItemActivity, DetailProdukActivity::class.java).putExtra("detailitem", it)
+                    val intent = Intent(this@ListItemActivity, DetailBarangActivity::class.java).putExtra("detailitem", it)
                     startActivity(intent)
                 }
             }

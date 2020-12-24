@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
-import com.candra.sewakameraapp.produk.ListItemActivity
+import com.candra.sewakameraapp.Barang.ListItemActivity
 import com.candra.sewakameraapp.R
 import kotlinx.android.synthetic.main.activity_menu_kategori.*
 

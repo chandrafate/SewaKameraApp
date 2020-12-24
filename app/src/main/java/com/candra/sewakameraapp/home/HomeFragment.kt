@@ -33,7 +33,7 @@ class HomeFragment : Fragment() {
 
         preferences = Preferences(activity!!.applicationContext)
 
-        tv_nama.setText(preferences.getValues("nama"))
+        tv_jumlah_item.setText(preferences.getValues("nama"))
 
         btn_kategori.setOnClickListener {
             startActivity(Intent(context, MenuKategoriActivity::class.java))

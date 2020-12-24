@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import com.candra.sewakameraapp.home.HomeFragment
-import com.candra.sewakameraapp.listbooking.ListBookingFragment
+import com.candra.sewakameraapp.booking.ListBookingFragment
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity() {

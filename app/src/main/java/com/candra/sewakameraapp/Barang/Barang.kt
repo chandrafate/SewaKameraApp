@@ -1,10 +1,10 @@
-package com.candra.sewakameraapp.produk
+package com.candra.sewakameraapp.Barang
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class Produk (
+data class Barang (
     var id: String ?="",
     var nama: String ?="",
     var gambar: String ?= "",

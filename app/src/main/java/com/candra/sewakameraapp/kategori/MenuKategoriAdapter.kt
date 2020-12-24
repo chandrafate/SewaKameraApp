@@ -36,7 +36,7 @@ class MenuKategoriAdapter(private var data: List<Kategori>,
     class LeagueViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         private val ivkategori: ImageView = view.findViewById(R.id.iv_item)
-        private val tvkategori: TextView = view.findViewById(R.id.tv_nama)
+        private val tvkategori: TextView = view.findViewById(R.id.tv_jumlah_item)
 
         fun bindItem(data: Kategori, listener: (Kategori) -> Unit, context : Context, position : Int) {
 

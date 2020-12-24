@@ -36,7 +36,7 @@
     </RelativeLayout>
 
     <TextView
-        android:id="@+id/tv_nama"
+        android:id="@+id/tv_jumlah_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"

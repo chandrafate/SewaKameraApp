@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white_background"
-        tools:context=".keranjang.KeranjangActivity">
+        tools:context=".booking.DetailBookingActivity">
 
         <ImageView
             android:id="@+id/iv_back"
@@ -27,10 +27,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="34dp"
-            android:text="Keranjang"
             android:textColor="@color/blue_background"
             android:textSize="24sp"
             android:textStyle="bold"
+            tools:text="2 Items"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -47,7 +47,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_jumlah_item" />
 
         <Button
-            android:id="@+id/btn_lanjut"
+            android:id="@+id/btn_konfirm_qr"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -55,100 +55,89 @@
             android:layout_marginEnd="24dp"
             android:layout_marginBottom="24dp"
             android:background="@drawable/btn_primary"
-            android:text="Lanjut Pembayaran"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="18sp"
-            android:visibility="invisible"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView15"
+            tools:text="Konfirmasi Pembayaran
+"
             tools:visibility="visible" />
-
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="16dp"
-            android:text="Set Checkout"
-            android:textColor="@color/blue_background"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rc_booking_item" />
-
-        <EditText
-            android:id="@+id/et_tgl_in"
-            android:layout_width="0dp"
-            android:layout_height="40sp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/btn_tgl"
-            android:drawableLeft="@drawable/ic_calendar"
-            android:drawablePadding="10dp"
-            android:editable="false"
-            android:ems="10"
-            android:hint="Tanggal Mulai"
-            android:textColor="@color/blue_background"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toStartOf="@+id/imageView3"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView9" />
-
-        <EditText
-            android:id="@+id/et_tgl_out"
-            android:layout_width="0dp"
-            android:layout_height="40sp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="24dp"
-            android:background="@drawable/btn_tgl"
-            android:drawableLeft="@drawable/ic_calendar"
-            android:drawablePadding="10dp"
-            android:editable="false"
-            android:ems="10"
-            android:hint="Tanggal Akhir"
-            android:textColor="@color/blue_background"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView3"
-            app:layout_constraintTop_toTopOf="@+id/et_tgl_in" />
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView9"
-            app:srcCompat="@drawable/ic_arrow_rightpx" />
 
         <TextView
             android:id="@+id/textView14"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="50dp"
+            android:text="Tanggal Pesan"
+            android:textColor="@color/blue_background"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rc_booking_item" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
             android:text="Jumlah Hari"
             android:textColor="@color/blue_background"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_tgl_in" />
+            app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+        <TextView
+            android:id="@+id/textView28"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:text="Denda"
+            android:textColor="@color/blue_background"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+        <TextView
+            android:id="@+id/tv_tgl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:textColor="@color/blue_background"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView14"
+            tools:text="24 - 25/8/2020" />
 
         <TextView
             android:id="@+id/tv_hari"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="24dp"
-            android:textColor="@color/pink_btn"
+            android:textColor="@color/blue_background"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView14"
-            tools:text="5 Hari" />
+            app:layout_constraintTop_toTopOf="@+id/textView12"
+            tools:text="5 hari" />
+
+        <TextView
+            android:id="@+id/tv_denda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:textColor="@color/blue_background"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView28"
+            tools:text="+ Rp 0" />
 
         <TextView
             android:id="@+id/textView15"
@@ -161,7 +150,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView14" />
+            app:layout_constraintTop_toBottomOf="@+id/textView28" />
 
         <TextView
             android:id="@+id/tv_total_checkout"

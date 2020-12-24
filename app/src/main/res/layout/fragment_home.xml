@@ -23,7 +23,7 @@
         app:layout_constraintTop_toBottomOf="@+id/iv_keranjang" />
 
     <TextView
-        android:id="@+id/tv_nama"
+        android:id="@+id/tv_jumlah_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -59,7 +59,7 @@
         android:editable="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_nama" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_jumlah_item" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_kategori"
