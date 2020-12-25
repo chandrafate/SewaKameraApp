@@ -32,7 +32,7 @@ class KategoriAdapter(private var data: List<Kategori>,
         holder.bindItem(data[position], listener, ContextAdapter, position)
     }
 
-//    limit yag di keluarkan
+    //    limit yag di keluarkan
     override fun getItemCount(): Int = 3
 
     class LeagueViewHolder(view: View) : RecyclerView.ViewHolder(view) {

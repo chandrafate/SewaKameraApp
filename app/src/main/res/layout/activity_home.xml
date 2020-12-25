@@ -20,19 +20,19 @@
 
         <ImageView
             android:id="@+id/iv_menu_home"
-            android:src="@drawable/ic_logo_home_aktif"
+            android:src="@drawable/ic_home_aktif"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"/>
         <ImageView
             android:id="@+id/iv_menu_booking"
-            android:src="@drawable/ic_logo_histori"
+            android:src="@drawable/ic_histori_unaktif"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"/>
         <ImageView
             android:id="@+id/iv_menu_user"
-            android:src="@drawable/ic_logo_user"
+            android:src="@drawable/ic_user_unaktif"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"/>

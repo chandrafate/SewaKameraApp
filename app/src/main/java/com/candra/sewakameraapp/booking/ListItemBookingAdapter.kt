@@ -8,7 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.candra.sewakameraapp.Barang.Barang
+import com.candra.sewakameraapp.barang.Barang
 import com.candra.sewakameraapp.R
 import java.text.NumberFormat
 import java.util.*

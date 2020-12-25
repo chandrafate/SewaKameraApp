@@ -101,7 +101,9 @@ class SignUpActivity : AppCompatActivity() {
                     preferences.setValues("email", data.email.toString())
                     preferences.setValues("password", data.password.toString())
                     preferences.setValues("gambar", "")
-                    preferences.setValues("status", "")
+                    preferences.setValues("status", data.status.toString())
+//                        set auto login
+                    preferences.setValues("login", "ya")
 
                     var goHome = Intent(
                         this@SignUpActivity,

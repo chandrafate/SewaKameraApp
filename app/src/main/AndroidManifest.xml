@@ -15,13 +15,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.noActionBar">
-        <activity android:name=".booking.SuccessKonfirmPembayaranActivity"></activity>
+        <activity android:name=".member.EditMemberActivity"></activity>
+        <activity android:name=".booking.SuccessKonfirmPembayaranActivity" />
         <activity android:name=".booking.DetailBookingActivity" />
         <activity android:name=".checkout.SuccessCheckoutActivity" />
         <activity android:name=".checkout.CheckoutActivity" />
         <activity android:name=".keranjang.KeranjangActivity" />
-        <activity android:name=".Barang.DetailBarangActivity" />
-        <activity android:name=".Barang.ListItemActivity" />
+        <activity android:name=".barang.DetailBarangActivity" />
+        <activity android:name=".barang.ListItemActivity" />
         <activity android:name=".kategori.MenuKategoriActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".sign.SignUpActivity" />

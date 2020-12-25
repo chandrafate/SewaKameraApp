@@ -43,7 +43,7 @@ class CheckoutActivity : AppCompatActivity() {
     }
 
     private fun pushBooking(booking: Booking) {
-        var key = mDatabase.push().getKey()
+        var key = (10000..99999).random().toString()
 
         booking.key = key
 

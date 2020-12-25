@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.candra.sewakameraapp.HomeActivity
 import com.candra.sewakameraapp.R
+import com.candra.sewakameraapp.utils.Preferences
 import kotlinx.android.synthetic.main.activity_success_konfirm_pembayaran.*
+import kotlinx.android.synthetic.main.fragment_home.*
 
 class SuccessKonfirmPembayaranActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,4 +1,4 @@
-package com.candra.sewakameraapp.Barang
+package com.candra.sewakameraapp.barang
 
 import android.content.Context
 import android.view.LayoutInflater

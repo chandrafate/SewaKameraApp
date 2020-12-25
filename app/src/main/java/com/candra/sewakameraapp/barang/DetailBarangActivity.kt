@@ -1,4 +1,4 @@
-package com.candra.sewakameraapp.Barang
+package com.candra.sewakameraapp.barang
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

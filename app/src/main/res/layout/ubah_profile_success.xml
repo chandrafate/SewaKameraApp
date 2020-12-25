@@ -10,11 +10,11 @@
 
     <ImageView
         android:id="@+id/iv_sdc"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_marginTop="30dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_centerHorizontal="true"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:layout_marginTop="30dp"
+        android:src="@drawable/ic_success_green" />
 
     <TextView
         android:id="@+id/textView30"
@@ -22,33 +22,21 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/iv_sdc"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
-        android:text="KODE BOOKING"
+        android:layout_marginTop="20dp"
+        android:text="Data Berhasil diubah"
         android:textColor="@color/blue_background"
         android:textSize="24sp" />
-
-    <TextView
-        android:id="@+id/tv_kode_booking"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView30"
-        android:layout_marginTop="20dp"
-android:layout_centerHorizontal="true"
-        tools:text="52v4c"
-        android:textColor="@color/blue_background"
-        android:textSize="30sp"
-        android:textStyle="bold" />
 
     <Button
         android:id="@+id/btn_close"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_kode_booking"
-        android:layout_marginTop="50dp"
+        android:layout_below="@+id/textView30"
         android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="30dp"
         android:background="@drawable/btn_secondary"
-        android:text="Tutup"
+        android:text="Kembali"
         android:textColor="@color/white"
         android:textSize="18sp" />
 </RelativeLayout>

@@ -63,8 +63,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView15"
-            tools:text="Konfirmasi Pembayaran
-"
+            android:text="Konfirmasi Pembayaran"
             tools:visibility="visible" />
 
         <TextView

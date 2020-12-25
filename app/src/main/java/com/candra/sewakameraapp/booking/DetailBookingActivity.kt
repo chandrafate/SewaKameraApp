@@ -1,6 +1,5 @@
 package com.candra.sewakameraapp.booking
 
-import android.R.attr.bitmap
 import android.app.Activity
 import android.app.Dialog
 import android.app.ProgressDialog
@@ -17,7 +16,7 @@ import androidmads.library.qrgenearator.QRGContents
 import androidmads.library.qrgenearator.QRGEncoder
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.candra.sewakameraapp.Barang.Barang
+import com.candra.sewakameraapp.barang.Barang
 import com.candra.sewakameraapp.R
 import com.candra.sewakameraapp.keranjang.Keranjang
 import com.candra.sewakameraapp.transaksi.Transaksi
@@ -59,7 +58,7 @@ class DetailBookingActivity : AppCompatActivity() {
     private var firebaseStore: FirebaseStorage? = null
     private var storageReference: StorageReference? = null
 
-    private var ada: Boolean = false
+    public var ada: Boolean = false
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -78,7 +77,9 @@ class DetailBookingActivity : AppCompatActivity() {
         idBooking = data!!.key.toString()
 
         tv_jumlah_item.text = data?.jumlah_item.toString() + " Items"
+
         val tglin = data?.tgl_in?.substring(0, 2) ?: String()
+
         tv_tgl.text = tglin + " - " + data?.tgl_out
         tv_hari.text = data!!.tgl_in?.let { data!!.tgl_out?.let { it1 -> hitungHari(it, it1) } }
         tv_denda.text =
@@ -95,16 +96,24 @@ class DetailBookingActivity : AppCompatActivity() {
         getData()
 
         if (data.status.equals("pending")) {
-            btn_konfirm_qr.setText("Konfirmasi Pembayaran")
             btn_konfirm_qr.setBackgroundResource(R.drawable.btn_primary)
         } else if (data.status.equals("success")) {
-            btn_konfirm_qr.setText("Tampilkan Kode Booking")
             btn_konfirm_qr.setBackgroundResource(R.drawable.btn_secondary)
         }
 
+        checkKonfirm(idBooking)
+
         btn_konfirm_qr.setOnClickListener {
-            checkKonfirm(idBooking)
+            if (ada) {
+                showCode(idBooking)
+            } else {
+                showDialog()
+            }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
     }
 
     private fun getData() {
@@ -225,8 +234,7 @@ class DetailBookingActivity : AppCompatActivity() {
             tvnorek.visibility = View.VISIBLE
             ettransfer.visibility = View.VISIBLE
             tvnorek.text = "089 8765 4321"
-            textView35.text =
-                "1. Silahkan transfer sesuai total booking anda \n2. Harap mengirim foto / screenshot bukti pembayaran untuk mempercepat proses verifikasi\n3. Transfer sesuai nomor tujuan DANA di bawah ini :"
+            textView35.text = "1. Silahkan transfer sesuai total booking anda \n2. Harap mengirim foto / screenshot bukti pembayaran untuk mempercepat proses verifikasi\n3. Transfer sesuai nomor tujuan DANA di bawah ini :"
         }
 
         btn_cod.setOnClickListener {
@@ -243,7 +251,14 @@ class DetailBookingActivity : AppCompatActivity() {
         }
 
         btn_choose_image.setOnClickListener { launchGallery() }
-        btn_upload_image.setOnClickListener { uploadImage(pembayaran, ettransfer.text.toString()) }
+        btn_upload_image.setOnClickListener {
+            if (pembayaran.equals("ditempat")) {
+                insertTransaksi("","ditempat", "0")
+            } else {
+                uploadImage(pembayaran, ettransfer.text.toString())
+            }
+
+        }
         btnClose.setOnClickListener {
             dialog.dismiss()
         }
@@ -259,7 +274,7 @@ class DetailBookingActivity : AppCompatActivity() {
         dialog.getWindow()?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
 
         val btnClose = dialog.findViewById(R.id.btn_close) as Button
-        val iv_qr = dialog.findViewById(R.id.iv_qr) as ImageView
+        val iv_qr = dialog.findViewById(R.id.iv_sdc) as ImageView
         val tv_kode = dialog.findViewById(R.id.tv_kode_booking) as TextView
 
         tv_kode.text = idbooking
@@ -330,13 +345,9 @@ class DetailBookingActivity : AppCompatActivity() {
                         progressDialog.dismiss()
 
                         ref.downloadUrl.addOnSuccessListener {
-                            if (pembayaran != "ditempat") {
-                                insertTransaksi(it.toString(), pembayaran, transfer)
-                            }
+                            insertTransaksi(it.toString(), pembayaran, transfer)
 
                         }
-
-
                     } else {
                         // Handle failures
                     }
@@ -372,7 +383,7 @@ class DetailBookingActivity : AppCompatActivity() {
     }
 
     private fun checkKonfirm(idbooking: String) {
-        var ada = false
+
         mDatabase3.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (getdatasnapshot in snapshot.getChildren()) {
@@ -381,13 +392,12 @@ class DetailBookingActivity : AppCompatActivity() {
 
                     if (produk!!.equals(idbooking)) {
                         ada = true
-                        showCode(idbooking)
-                        break
-                        return
+                        btn_konfirm_qr.setText("Tampilkan Kode Booking")
+
                     }
                 }
-                if (ada.equals(false)) {
-                    showDialog()
+                if (!ada) {
+                    btn_konfirm_qr.setText("Konfirmasi Pembayaran")
                 }
             }
 

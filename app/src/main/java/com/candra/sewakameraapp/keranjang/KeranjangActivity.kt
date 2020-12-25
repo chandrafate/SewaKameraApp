@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.candra.sewakameraapp.R
 import com.candra.sewakameraapp.checkout.Booking
 import com.candra.sewakameraapp.checkout.CheckoutActivity
-import com.candra.sewakameraapp.Barang.Barang
+import com.candra.sewakameraapp.barang.Barang
 import com.candra.sewakameraapp.utils.Preferences
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_keranjang.*

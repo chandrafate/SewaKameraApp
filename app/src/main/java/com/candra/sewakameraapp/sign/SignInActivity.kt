@@ -27,6 +27,13 @@ class SignInActivity : AppCompatActivity() {
         mDatabase = FirebaseDatabase.getInstance().getReference("member")
         preferences = Preferences(this)
 
+        //        cek jika sudah login
+        if (preferences.getValues("login").equals("ya")) {
+            finishAffinity()
+
+            startActivity(Intent(this, HomeActivity::class.java))
+        }
+
         btn_sign_up.setOnClickListener {
             startActivity(Intent(this, SignUpActivity::class.java))
         }
@@ -73,6 +80,9 @@ class SignInActivity : AppCompatActivity() {
                         preferences.setValues("status", member.status.toString())
                         preferences.setValues("gambar", member.gambar.toString())
                         preferences.setValues("username", member.username.toString())
+                        preferences.setValues("password", member.password.toString())
+//                        set auto login
+                        preferences.setValues("login", "ya")
 
                         finishAffinity()
 
