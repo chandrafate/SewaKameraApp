@@ -245,6 +245,5 @@ class EditMemberActivity : AppCompatActivity() {
         }
 
         dialog.show()
-
     }
 }

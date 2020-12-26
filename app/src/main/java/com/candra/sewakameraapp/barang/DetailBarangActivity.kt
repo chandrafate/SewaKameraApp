@@ -1,6 +1,11 @@
 package com.candra.sewakameraapp.barang
 
+import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.view.Window
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.candra.sewakameraapp.keranjang.Keranjang
@@ -53,7 +58,24 @@ class DetailBarangActivity : AppCompatActivity() {
     private fun insertKeranjang(data : String) {
         var keranjang = Keranjang()
         keranjang.id = data
-        mDatabase.child(preferences.getValues("username").toString()).child("keranjang").push().setValue(keranjang)
+        mDatabase.child(preferences.getValues("username").toString()).child("keranjang").push().setValue(keranjang).addOnSuccessListener {
+            showSuccess()
+        }
+    }
+    fun showSuccess() {
+        val dialog = Dialog(this)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setCancelable(false)
+        dialog.setContentView(R.layout.tambah_keranjang_success)
+        dialog.getWindow()?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+
+        val btnClose = dialog.findViewById(R.id.btn_close) as Button
+
+        btnClose.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        dialog.show()
     }
 
 }

@@ -130,13 +130,23 @@ class KeranjangActivity : AppCompatActivity() {
                     format.parse(tanggalIn).getTime(),
             TimeUnit.MILLISECONDS
         )
+        
+        if (days > 0) {
+            tv_hari.text = "$days Hari"
 
-        tv_hari.text = "$days Hari"
+            totalHargaCheckout = totalHargaBarang * days.toInt()
 
-        totalHargaCheckout = totalHargaBarang * days.toInt()
+            btn_lanjut.setText("Lanjut Pembayaran(${idProduk.size})")
+            btn_lanjut.visibility = View.VISIBLE
+        } else {
+            totalHargaCheckout = 0
 
-        btn_lanjut.setText("Lanjut Pembayaran(${idProduk.size})")
-        btn_lanjut.visibility = View.VISIBLE
+            btn_lanjut.setText("")
+            btn_lanjut.visibility = View.INVISIBLE
+            Toast.makeText(this, "Minimal 1 Hari", Toast.LENGTH_SHORT).show()
+        }
+
+       
     }
 
     private fun getDateCalender() {

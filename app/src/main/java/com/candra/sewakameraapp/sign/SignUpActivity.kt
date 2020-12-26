@@ -105,6 +105,8 @@ class SignUpActivity : AppCompatActivity() {
 //                        set auto login
                     preferences.setValues("login", "ya")
 
+                    finishAffinity()
+
                     var goHome = Intent(
                         this@SignUpActivity,
                         HomeActivity::class.java

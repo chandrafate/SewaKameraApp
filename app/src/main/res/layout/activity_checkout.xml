@@ -2,7 +2,7 @@
 <androidx.core.widget.NestedScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/white_background"
+    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -28,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="34dp"
-            android:text="Pembayaran"
+            android:text="Info Pembayaran"
             android:textColor="@color/blue_background"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -54,13 +54,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="20dp"
             android:text="2. Cara Pembayaran"
             android:textColor="@color/blue_background"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardView" />
+            app:layout_constraintTop_toBottomOf="@+id/ly" />
 
         <TextView
             android:id="@+id/textView24"
@@ -86,32 +86,71 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
+        <LinearLayout
+            android:id="@+id/ly"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_below="@+id/textView11"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="24dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView16">
+
+
+            <ImageView
+                android:id="@+id/iv_ovo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/ovo_selected" />
+
+            <ImageView
+                android:id="@+id/iv_dana"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/dana_unselected" />
+
+            <ImageView
+                android:id="@+id/iv_cod"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/cod_unselected" />
+
+
+        </LinearLayout>
+
         <TextView
-            android:id="@+id/textView19"
+            android:id="@+id/tv_ket"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="24dp"
-            android:text="Silahkan transfer menggunakan Mobile  BNI Banking / ATM dengan nomor  rekening di bawah ini :"
+            android:text="1. Silahkan transfer sesuai total booking anda \n2. Harap mengirim foto / screenshot bukti pembayaran untuk mempercepat proses verifikasi\n3. Transfer sesuai nomor tujuan OVO di bawah ini :"
             android:textColor="@color/blue_background"
-            android:textSize="18sp"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
         <TextView
-            android:id="@+id/textView20"
+            android:id="@+id/tv_norek"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="16dp"
-            android:text="1237 7383 2343"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
+            android:text="081 2345 6789343"
             android:textColor="@color/pink_btn"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView19" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_ket" />
 
         <TextView
             android:id="@+id/textView25"
@@ -120,32 +159,21 @@
             android:layout_marginEnd="24dp"
             android:text="Rp 50000"
             android:textColor="@color/pink_btn"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/textView24" />
 
         <TextView
-            android:id="@+id/textView22"
+            android:id="@+id/tv_copy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="32dp"
+            android:layout_marginEnd="24dp"
             android:drawableTop="@drawable/ic_copy"
             android:text="copy"
+            android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView20" />
-
-        <TextView
-            android:id="@+id/textView23"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="An Fernandes"
-            android:textColor="@color/blue_background"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toStartOf="@+id/textView22"
-            app:layout_constraintStart_toEndOf="@+id/textView20"
-            app:layout_constraintTop_toTopOf="@+id/textView20" />
+            app:layout_constraintTop_toTopOf="@+id/tv_norek" />
 
         <Button
             android:id="@+id/btn_checkout"
@@ -156,7 +184,7 @@
             android:layout_marginEnd="24dp"
             android:layout_marginBottom="24dp"
             android:background="@drawable/btn_secondary"
-            android:text="Bayar Sekarang"
+            android:text="Checkout Sekarang"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="18sp"
@@ -175,73 +203,11 @@
             android:background="@drawable/shape_line"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView20" />
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
-            android:outlineSpotShadowColor="@color/white_background"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView16">
+            app:layout_constraintTop_toBottomOf="@+id/tv_norek" />
 
 
-            <ImageView
-                android:id="@+id/imageView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/bni_logo" />
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView2"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="24dp"
-            android:outlineSpotShadowColor="@color/white_background"
-            app:layout_constraintEnd_toStartOf="@+id/relativeLayout4"
-            app:layout_constraintStart_toEndOf="@+id/cardView"
-            app:layout_constraintTop_toBottomOf="@+id/textView16">
 
 
-            <ImageView
-                android:id="@+id/imageView9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/logo_bri" />
-        </androidx.cardview.widget.CardView>
-
-        <RelativeLayout
-            android:id="@+id/relativeLayout4"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="24dp"
-            android:background="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView16">
-
-            <ImageView
-                android:id="@+id/imageView10"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_above="@+id/textView27"
-                android:layout_marginBottom="0dp"
-                app:srcCompat="@drawable/ic_local_atm" />
-
-            <TextView
-                android:id="@+id/textView27"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="10dp"
-                android:text="Bayar Ditempat"
-                android:textColor="@color/blue_background" />
-
-        </RelativeLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
