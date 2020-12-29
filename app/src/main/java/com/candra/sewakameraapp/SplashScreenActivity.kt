@@ -1,10 +1,10 @@
 package com.candra.sewakameraapp
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import com.candra.sewakameraapp.sign.SignInActivity
+import androidx.appcompat.app.AppCompatActivity
+import com.candra.sewakameraapp.intro.IntroActivity
 
 class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,9 +13,9 @@ class SplashScreenActivity : AppCompatActivity() {
 
         var handler = Handler()
         handler.postDelayed({
-            var intent = Intent(this, SignInActivity::class.java)
+            var intent = Intent(this, IntroActivity::class.java)
             startActivity(intent)
             finish()
-        }, 2000)
+        }, 1000)
     }
 }
