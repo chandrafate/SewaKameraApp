@@ -8,7 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.candra.sewakameraapp.R
-import com.candra.sewakameraapp.adminhome.AdminHomeActivity
+import com.candra.sewakameraapp.admin.AdminActivity
 import com.candra.sewakameraapp.barang.Barang
 import com.candra.sewakameraapp.booking.Booking2
 import com.candra.sewakameraapp.booking.ListItemBookingAdapter
@@ -176,7 +176,7 @@ class AdminDetailBookingActivity : AppCompatActivity() {
                 }
 
                 finishAffinity()
-                startActivity(Intent(this@AdminDetailBookingActivity, AdminHomeActivity::class.java))
+                startActivity(Intent(this@AdminDetailBookingActivity, AdminActivity::class.java))
 
             }
 
@@ -194,14 +194,14 @@ class AdminDetailBookingActivity : AppCompatActivity() {
     private fun tolakBooking(key: String?) {
         mDatabase.child("booking/$key/status").setValue("ditolak")
         finishAffinity()
-        startActivity(Intent(this@AdminDetailBookingActivity, AdminHomeActivity::class.java))
+        startActivity(Intent(this@AdminDetailBookingActivity, AdminActivity::class.java))
     }
 
     private fun PengembalianBooking(idbooking: String) {
         mDatabase.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 var progressDialog = ProgressDialog(this@AdminDetailBookingActivity)
-                progressDialog.setTitle("Uploading...")
+                progressDialog.setTitle("Proses...")
                 progressDialog.show()
 
                 barang.clear()
@@ -234,7 +234,7 @@ class AdminDetailBookingActivity : AppCompatActivity() {
 
                 progressDialog.dismiss()
                 finishAffinity()
-                startActivity(Intent(this@AdminDetailBookingActivity, AdminHomeActivity::class.java))
+                startActivity(Intent(this@AdminDetailBookingActivity, AdminActivity::class.java))
 
             }
 

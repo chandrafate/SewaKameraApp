@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.candra.sewakameraapp" >
+    package="com.candra.sewakameraapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
@@ -20,11 +20,14 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme.noActionBar" >
+        android:theme="@style/AppTheme.noActionBar">
+        <activity android:name=".adminBarang.FormTambahbarangActivity"></activity>
+        <activity android:name=".adminBarang.AdminKelolaProdukActivity" />
+        <activity android:name=".adminBarang.AdminKategoriBarangActivity" />
         <activity android:name=".transaksi.AdminDetailTransaksiActivity" />
         <activity android:name=".admindetailbooking.AdminDetailBookingActivity" />
-        <activity android:name=".adminhome.ScanQrActivity" />
-        <activity android:name=".adminhome.AdminHomeActivity" />
+        <activity android:name=".admin.ScanQrActivity" />
+        <activity android:name=".admin.AdminActivity" />
         <activity android:name=".intro.IntroActivity" />
         <activity android:name=".member.EditMemberActivity" />
         <activity android:name=".booking.SuccessKonfirmPembayaranActivity" />
@@ -38,8 +41,7 @@
         <activity android:name=".HomeActivity" />
         <activity android:name=".sign.SignUpActivity" />
         <activity android:name=".sign.SignInActivity" />
-        <activity android:name=".onboarding.OnBoardingOneActivity" />
-        <activity android:name=".SplashScreenActivity" >
+        <activity android:name=".SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

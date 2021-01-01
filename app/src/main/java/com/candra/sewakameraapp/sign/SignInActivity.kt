@@ -6,8 +6,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.candra.sewakameraapp.HomeActivity
 import com.candra.sewakameraapp.R
-import com.candra.sewakameraapp.adminhome.Admin
-import com.candra.sewakameraapp.adminhome.AdminHomeActivity
+import com.candra.sewakameraapp.admin.Admin
+import com.candra.sewakameraapp.admin.AdminActivity
 import com.candra.sewakameraapp.utils.Preferences
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_sign_in.*
@@ -39,7 +39,7 @@ class SignInActivity : AppCompatActivity() {
         } else if (preferences.getValues("login").equals("admin")) {
             finishAffinity()
 
-            startActivity(Intent(this, AdminHomeActivity::class.java))
+            startActivity(Intent(this, AdminActivity::class.java))
         }
 
         btn_sign_up.setOnClickListener {
@@ -91,7 +91,7 @@ class SignInActivity : AppCompatActivity() {
 
                         val intent = Intent(
                             this@SignInActivity,
-                            AdminHomeActivity::class.java
+                            AdminActivity::class.java
                         )
                         startActivity(intent)
 

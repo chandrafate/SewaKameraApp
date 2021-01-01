@@ -1,4 +1,4 @@
-package com.candra.sewakameraapp.adminhome
+package com.candra.sewakameraapp.admin
 
 import android.app.AlertDialog
 import android.app.Dialog
@@ -16,16 +16,18 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import com.candra.sewakameraapp.R
 import com.candra.sewakameraapp.admindetailbooking.AdminDetailBookingActivity
+import com.candra.sewakameraapp.adminhome.AdminHomeFragment
 import com.candra.sewakameraapp.booking.Booking2
 import com.candra.sewakameraapp.keranjang.Keranjang
 import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.activity_admin_home.*
-import java.util.ArrayList
+import kotlinx.android.synthetic.main.activity_admin.*
+import java.util.*
 
 
-class AdminHomeActivity : AppCompatActivity() {
+class AdminActivity : AppCompatActivity() {
 
     val CAMERA_RO = 102
 
@@ -35,14 +37,18 @@ class AdminHomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_admin_home)
+        setContentView(R.layout.activity_admin)
 
         mDatabase = FirebaseDatabase.getInstance().getReference()
+
+        val fragmentHome = AdminHomeFragment()
 
         iv_scan_menu.setOnClickListener {
             cekPermission(android.Manifest.permission.CAMERA, "camera", CAMERA_RO)
             showScanMenu()
         }
+
+        setFragment(fragmentHome)
     }
 
     private fun cekPermission(permission: String, name: String, requestCode: Int) {
@@ -82,7 +88,7 @@ class AdminHomeActivity : AppCompatActivity() {
             setMessage("Permission to access your $name is required to use this app")
             setTitle("Permission required")
             setPositiveButton("OK") {dialog, which ->
-                ActivityCompat.requestPermissions(this@AdminHomeActivity, arrayOf(permission), requestCode)
+                ActivityCompat.requestPermissions(this@AdminActivity, arrayOf(permission), requestCode)
             }
         }
 
@@ -177,7 +183,7 @@ class AdminHomeActivity : AppCompatActivity() {
                 } else {
                     val nama = snapshot.child("member/${data!!.username}/nama").getValue()
 
-                    startActivity(Intent(this@AdminHomeActivity, AdminDetailBookingActivity::class.java)
+                    startActivity(Intent(this@AdminActivity, AdminDetailBookingActivity::class.java)
                         .putExtra("detailBooking", data)
                         .putExtra("nama", nama.toString())
                         .putExtra("listBarang", idProduk))
@@ -185,9 +191,16 @@ class AdminHomeActivity : AppCompatActivity() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(this@AdminHomeActivity, "" + error.message, Toast.LENGTH_LONG).show()
+                Toast.makeText(this@AdminActivity, "" + error.message, Toast.LENGTH_LONG).show()
             }
 
         })
+    }
+
+    private fun setFragment(fragment: Fragment) {
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.frame_layout, fragment)
+        fragmentTransaction.commit()
     }
 }

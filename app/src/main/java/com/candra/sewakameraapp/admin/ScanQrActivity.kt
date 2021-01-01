@@ -1,4 +1,4 @@
-package com.candra.sewakameraapp.adminhome
+package com.candra.sewakameraapp.admin
 
 import android.app.Dialog
 import android.content.Intent
