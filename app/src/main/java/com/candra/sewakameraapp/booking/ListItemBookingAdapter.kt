@@ -38,7 +38,7 @@ class ListItemBookingAdapter(private var data: List<Barang>,
 
     class LeagueViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-        private val ivitem: ImageView = view.findViewById(R.id.iv_item)
+        private val ivitem: ImageView = view.findViewById(R.id.iv_profile)
         private val tvnama: TextView = view.findViewById(R.id.tv_jumlah_item)
         private val tvharga: TextView = view.findViewById(R.id.tv_harga)
 

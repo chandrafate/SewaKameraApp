@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white_background"
     tools:context=".admin.AdminActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="230dp"
+        android:layout_height="0dp"
         android:background="@drawable/background_user"
+        app:layout_constraintBottom_toBottomOf="@+id/gridLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -20,7 +22,8 @@
         android:id="@+id/gridLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
+        android:paddingBottom="20dp"
         android:alignmentMode="alignMargins"
         android:columnCount="2"
         android:columnOrderPreserved="false"
@@ -40,16 +43,16 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:background="@drawable/gradient1">
 
                 <ImageView
                     android:id="@+id/asd"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="20dp"
-                    android:src="@drawable/ic_shop2" />
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="14dp"
+                    android:src="@drawable/ic_camera1" />
 
                 <TextView
                     android:id="@+id/tv_total_barang"
@@ -68,7 +71,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tv_total_barang"
                     android:layout_marginStart="10dp"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginBottom="14dp"
                     android:layout_toEndOf="@+id/asd"
                     android:fontFamily="sans-serif-light"
                     android:text="Barang"
@@ -97,8 +100,8 @@
                     android:id="@+id/ascasfefc"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="14dp"
                     android:src="@drawable/ic_user" />
 
                 <TextView
@@ -118,7 +121,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tv_total_member"
                     android:layout_marginStart="10dp"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginBottom="14dp"
                     android:layout_toEndOf="@+id/ascasfefc"
                     android:fontFamily="sans-serif-light"
                     android:text="Member"
@@ -140,15 +143,15 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:background="@drawable/gradient3">
 
                 <ImageView
                     android:id="@+id/asxasxaxa"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="14dp"
                     android:src="@drawable/ic_keranjang" />
 
                 <TextView
@@ -168,7 +171,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tv_total_booking"
                     android:layout_marginStart="10dp"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginBottom="14dp"
                     android:layout_toEndOf="@+id/asxasxaxa"
                     android:fontFamily="sans-serif-light"
                     android:text="Booking"
@@ -199,8 +202,8 @@
                     android:id="@+id/asdsf"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="14dp"
                     android:src="@drawable/ic_discount" />
 
                 <TextView
@@ -220,7 +223,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tv_total_promo"
                     android:layout_marginStart="10dp"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginBottom="14dp"
                     android:layout_toEndOf="@+id/asdsf"
                     android:fontFamily="sans-serif-light"
                     android:text="Promo"
@@ -235,23 +238,39 @@
 
     <Button
         android:id="@+id/btn_produk"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="24dp"
         android:background="@drawable/btn_search"
+        android:drawableStart="@drawable/ic_camera3"
+        android:drawablePadding="10dp"
         android:text="Kelola Barang"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textColor="@color/blue_background"
+        style="?android:attr/borderlessButtonStyle"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView57" />
 
     <Button
         android:id="@+id/btn_produk2"
-        android:layout_width="wrap_content"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="24dp"
         android:background="@drawable/btn_search"
+        android:drawableStart="@drawable/ic_discount_24px"
+        android:drawablePadding="10dp"
         android:text="Kelola promo"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textColor="@color/blue_background"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_produk" />
 
@@ -278,6 +297,25 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gridLayout" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/btn_search"
+        android:drawableStart="@drawable/ic_list_booking"
+        android:drawablePadding="10dp"
+        android:text="List Booking"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textColor="@color/blue_background"
+        style="?android:attr/borderlessButtonStyle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_produk2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

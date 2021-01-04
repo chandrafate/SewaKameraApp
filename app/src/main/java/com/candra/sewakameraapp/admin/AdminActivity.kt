@@ -20,6 +20,7 @@ import androidx.fragment.app.Fragment
 import com.candra.sewakameraapp.R
 import com.candra.sewakameraapp.admindetailbooking.AdminDetailBookingActivity
 import com.candra.sewakameraapp.adminhome.AdminHomeFragment
+import com.candra.sewakameraapp.adminmember.AdminMemberFragment
 import com.candra.sewakameraapp.booking.Booking2
 import com.candra.sewakameraapp.keranjang.Keranjang
 import com.google.firebase.database.*
@@ -42,6 +43,7 @@ class AdminActivity : AppCompatActivity() {
         mDatabase = FirebaseDatabase.getInstance().getReference()
 
         val fragmentHome = AdminHomeFragment()
+        val fragmentMember = AdminMemberFragment()
 
         iv_scan_menu.setOnClickListener {
             cekPermission(android.Manifest.permission.CAMERA, "camera", CAMERA_RO)
@@ -49,6 +51,18 @@ class AdminActivity : AppCompatActivity() {
         }
 
         setFragment(fragmentHome)
+
+        iv_menu_home.setOnClickListener {
+            setFragment(fragmentHome)
+            iv_menu_user.setImageResource(R.drawable.ic_user_unaktif)
+            iv_menu_home.setImageResource(R.drawable.ic_home_aktif)
+        }
+
+        iv_menu_user.setOnClickListener {
+            setFragment(fragmentMember)
+            iv_menu_user.setImageResource(R.drawable.ic_user_aktif)
+            iv_menu_home.setImageResource(R.drawable.ic_home_unaktif)
+        }
     }
 
     private fun cekPermission(permission: String, name: String, requestCode: Int) {

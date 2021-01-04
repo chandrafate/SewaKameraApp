@@ -23,7 +23,7 @@
             android:outlineSpotShadowColor="@color/white">
 
             <ImageView
-                android:id="@+id/iv_item"
+                android:id="@+id/iv_profile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:scaleType="centerCrop"
@@ -42,7 +42,7 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/tv_jumlah"
+            android:id="@+id/tv_username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_nama"
