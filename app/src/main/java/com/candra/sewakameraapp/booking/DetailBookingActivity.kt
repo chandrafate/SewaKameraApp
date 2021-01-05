@@ -16,8 +16,8 @@ import androidmads.library.qrgenearator.QRGContents
 import androidmads.library.qrgenearator.QRGEncoder
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.candra.sewakameraapp.barang.Barang
 import com.candra.sewakameraapp.R
+import com.candra.sewakameraapp.barang.Barang
 import com.candra.sewakameraapp.keranjang.Keranjang
 import com.candra.sewakameraapp.transaksi.Transaksi
 import com.google.android.gms.tasks.Continuation
@@ -28,13 +28,6 @@ import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.UploadTask
 import com.google.zxing.WriterException
 import kotlinx.android.synthetic.main.activity_detail_booking.*
-import kotlinx.android.synthetic.main.activity_detail_booking.iv_back
-import kotlinx.android.synthetic.main.activity_detail_booking.rc_booking_item
-import kotlinx.android.synthetic.main.activity_detail_booking.tv_hari
-import kotlinx.android.synthetic.main.activity_detail_booking.tv_jumlah_item
-import kotlinx.android.synthetic.main.activity_detail_booking.tv_total_checkout
-import kotlinx.android.synthetic.main.activity_keranjang.*
-import kotlinx.android.synthetic.main.activity_list_item.*
 import kotlinx.android.synthetic.main.konfirmasi_pembayaran_dialog.*
 import java.io.IOException
 import java.text.NumberFormat
@@ -67,7 +60,8 @@ class DetailBookingActivity : AppCompatActivity() {
 
         val data = intent.getParcelableExtra<Booking2>("detailBooking")
 
-        mDatabase = FirebaseDatabase.getInstance().getReference("produk")
+        mDatabase = FirebaseDatabase.getInstance().getReference()
+//        mDatabase = FirebaseDatabase.getInstance().getReference("produk")
         mDatabase2 = FirebaseDatabase.getInstance().getReference("booking")
         mDatabase3 = FirebaseDatabase.getInstance().getReference("transaksi")
 
@@ -76,34 +70,34 @@ class DetailBookingActivity : AppCompatActivity() {
 
         idBooking = data!!.key.toString()
 
-        tv_jumlah_item.text = data?.jumlah_item.toString() + " Items"
+        tv_jumlah_detail_booking.text = data?.jumlah_item.toString() + " Items"
 
         val tglin = data?.tgl_in?.substring(0, 2) ?: String()
 
-        tv_tgl.text = tglin + " - " + data?.tgl_out
-        tv_hari.text = data!!.tgl_in?.let { data!!.tgl_out?.let { it1 -> hitungHari(it, it1) } }
-        tv_denda.text =
+        tv_tgl_detail_booking.text = tglin + " - " + data?.tgl_out
+        tv_hari_detail_booking.text = data!!.tgl_in?.let { data!!.tgl_out?.let { it1 -> hitungHari(it, it1) } }
+        tv_denda_detail_booking.text =
             "+" + formatHarga(data.denda!!).substring(0, formatHarga(data.denda!!).length - 3)
-        tv_total_checkout.text =
+        tv_total_detail_booking.text =
             formatHarga(data.total!!).substring(0, formatHarga(data.total!!).length - 3)
 
-        iv_back.setOnClickListener {
+        iv_back_detail_booking.setOnClickListener {
             finish()
         }
 
-        rc_booking_item.layoutManager = LinearLayoutManager(this)
+        rc_item_detail_booking.layoutManager = LinearLayoutManager(this)
 
         getData()
 
         if (data.status.equals("pending")) {
-            btn_konfirm_qr.setBackgroundResource(R.drawable.btn_primary)
+            btn_konfirm_qr_detail_booking.setBackgroundResource(R.drawable.btn_primary)
         } else if (data.status.equals("success")) {
-            btn_konfirm_qr.setBackgroundResource(R.drawable.btn_secondary)
+            btn_konfirm_qr_detail_booking.setBackgroundResource(R.drawable.btn_secondary)
         }
 
         checkKonfirm(idBooking)
 
-        btn_konfirm_qr.setOnClickListener {
+        btn_konfirm_qr_detail_booking.setOnClickListener {
             if (ada) {
                 showCode(idBooking)
             } else {
@@ -117,15 +111,29 @@ class DetailBookingActivity : AppCompatActivity() {
     }
 
     private fun getData() {
-        mDatabase2.child(idBooking).child("barang")
-            .addListenerForSingleValueEvent(object : ValueEventListener {
+        mDatabase.addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
 
                     idProduk.clear()
+                    dataList.clear()
 
-                    for (getdatasnapshot in snapshot.getChildren()) {
+                    for (getdatasnapshot in snapshot.child("booking/$idBooking/barang").getChildren()) {
                         val keranjang = getdatasnapshot.getValue(Keranjang::class.java)
                         idProduk.add(keranjang!!)
+                    }
+
+                    idProduk.forEach {
+
+                        for (getdatasnapshot in snapshot.child("produk").getChildren()) {
+
+                            val produk = getdatasnapshot.getValue(Barang::class.java)
+
+                            if (produk!!.id.equals(it.id)) {
+                                dataList.add(produk!!)
+                            }
+                        }
+                    }
+                    rc_item_detail_booking.adapter = ListItemBookingAdapter(dataList) {
                     }
                 }
 
@@ -138,38 +146,6 @@ class DetailBookingActivity : AppCompatActivity() {
                 }
 
             })
-
-        mDatabase.addListenerForSingleValueEvent(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-
-                dataList.clear()
-
-                for (getdatasnapshot in snapshot.getChildren()) {
-
-                    idProduk.forEach {
-
-                        for (getdatasnapshot in snapshot.getChildren()) {
-
-                            val produk = getdatasnapshot.getValue(Barang::class.java)
-
-                            if (produk!!.id.equals(it.id)) {
-                                dataList.add(produk!!)
-                            }
-                        }
-                    }
-
-                }
-
-                rc_booking_item.adapter = ListItemBookingAdapter(dataList) {
-                }
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(this@DetailBookingActivity, "" + error.message, Toast.LENGTH_LONG)
-                    .show()
-            }
-
-        })
     }
 
     private fun formatHarga(denda: Int): String {
@@ -392,12 +368,12 @@ class DetailBookingActivity : AppCompatActivity() {
 
                     if (produk!!.equals(idbooking)) {
                         ada = true
-                        btn_konfirm_qr.setText("Tampilkan Kode Booking")
+                        btn_konfirm_qr_detail_booking.setText("Tampilkan Kode Booking")
 
                     }
                 }
                 if (!ada) {
-                    btn_konfirm_qr.setText("Konfirmasi Pembayaran")
+                    btn_konfirm_qr_detail_booking.setText("Konfirmasi Pembayaran")
                 }
             }
 

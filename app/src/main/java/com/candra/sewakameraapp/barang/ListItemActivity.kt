@@ -9,7 +9,6 @@ import com.candra.sewakameraapp.R
 import com.candra.sewakameraapp.kategori.Kategori
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_list_item.*
-import kotlinx.android.synthetic.main.activity_menu_kategori.*
 
 class ListItemActivity : AppCompatActivity() {
 
@@ -28,15 +27,14 @@ class ListItemActivity : AppCompatActivity() {
 
         mDatabase = FirebaseDatabase.getInstance().getReference("produk")
 
-        tv_jumlah_item.text = data?.nama
+        tv_nama_kategori_barang.text = data.nama
 
-        iv_back.setOnClickListener {
+        iv_back_list_barang.setOnClickListener {
             finish()
         }
 
 
-        rc_list_item.layoutManager = LinearLayoutManager(this)
-
+        rc_item_list_barang.layoutManager = LinearLayoutManager(this)
         getData()
     }
 
@@ -51,12 +49,12 @@ class ListItemActivity : AppCompatActivity() {
                     val produk = getdatasnapshot.getValue(Barang::class.java)
 
                     if (produk!!.kategori == id) {
-                        dataList.add(produk!!)
+                        dataList.add(produk)
                     }
 
                 }
 
-                rc_list_item.adapter = ListItemAdapter(dataList) {
+                rc_item_list_barang.adapter = ListItemAdapter(dataList) {
                     val intent = Intent(this@ListItemActivity, DetailBarangActivity::class.java).putExtra("detailitem", it)
                     startActivity(intent)
                 }

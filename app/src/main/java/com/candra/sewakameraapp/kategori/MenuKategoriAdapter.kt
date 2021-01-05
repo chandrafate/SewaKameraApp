@@ -35,17 +35,17 @@ class MenuKategoriAdapter(private var data: List<Kategori>,
 
   class LeagueViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-    private val ivkategori: ImageView = view.findViewById(R.id.iv_profile)
-    private val tvkategori: TextView = view.findViewById(R.id.tv_jumlah_item)
+    private val ivgambar: ImageView = view.findViewById(R.id.iv_gambar_item_menu_kategori)
+    private val tvnama: TextView = view.findViewById(R.id.tv_nama_item_menu_kategori)
 
     fun bindItem(data: Kategori, listener: (Kategori) -> Unit, context : Context, position : Int) {
 
-      tvkategori.text = data.nama
+      tvnama.text = data.nama
 
       Glide.with(context)
         .load(data.gambar)
         .override(320, 300)
-        .into(ivkategori);
+        .into(ivgambar);
 
       itemView.setOnClickListener {
 //                ngirim data ketika diclick

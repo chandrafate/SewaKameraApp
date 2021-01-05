@@ -26,7 +26,7 @@
             android:outlineSpotShadowColor="@color/white">
 
             <ImageView
-                android:id="@+id/iv_profile"
+                android:id="@+id/iv_item_kategori"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:scaleType="centerCrop"
@@ -36,7 +36,7 @@
     </RelativeLayout>
 
     <TextView
-        android:id="@+id/tv_jumlah_item"
+        android:id="@+id/tv_nama_item_kategori"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"

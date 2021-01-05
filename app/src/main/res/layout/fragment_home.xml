@@ -20,10 +20,10 @@
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_keranjang" />
+            app:layout_constraintTop_toBottomOf="@+id/iv_keranjang_home" />
 
         <TextView
-            android:id="@+id/tv_jumlah_item"
+            android:id="@+id/tv_nama_home"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -35,7 +35,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
         <ImageView
-            android:id="@+id/iv_keranjang"
+            android:id="@+id/iv_keranjang_home"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginTop="40dp"
@@ -45,7 +45,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/btn_kategori"
+            android:id="@+id/btn_kategori_home"
             android:layout_width="0dp"
             android:layout_height="50sp"
             android:layout_marginStart="24dp"
@@ -59,16 +59,16 @@
             android:editable="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_jumlah_item" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_nama_home" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_kategori"
+            android:id="@+id/rc_item_kategori_home"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="20dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_kategori" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_kategori_home" />
 
         <TextView
             android:id="@+id/textView6"
@@ -83,7 +83,7 @@
             android:textSize="28sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rv_kategori" />
+            app:layout_constraintTop_toBottomOf="@+id/rc_item_kategori_home" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"

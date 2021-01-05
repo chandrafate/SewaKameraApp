@@ -38,9 +38,9 @@ class KeranjangAdapter(private var data: List<Barang>,
 
     class LeagueViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-        private val ivitem: ImageView = view.findViewById(R.id.iv_profile)
-        private val tvnama: TextView = view.findViewById(R.id.tv_jumlah_item)
-        private val tvharga: TextView = view.findViewById(R.id.tv_harga)
+        private val ivproduk: ImageView = view.findViewById(R.id.iv_produk_keranjang)
+        private val tvnama: TextView = view.findViewById(R.id.tv_nama_keranjang)
+        private val tvharga: TextView = view.findViewById(R.id.tv_harga_keranjang)
 
         fun bindItem(data: Barang, listener: (Barang) -> Unit, context : Context, position : Int) {
 
@@ -55,7 +55,7 @@ class KeranjangAdapter(private var data: List<Barang>,
             Glide.with(context)
                 .load(data.gambar)
                 .override(320, 300)
-                .into(ivitem);
+                .into(ivproduk);
 
             itemView.setOnClickListener {
 //                ngirim data ketika diclick

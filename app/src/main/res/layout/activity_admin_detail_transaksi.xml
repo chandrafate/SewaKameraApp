@@ -7,7 +7,7 @@
     tools:context=".transaksi.AdminDetailTransaksiActivity">
 
     <ImageView
-        android:id="@+id/iv_back"
+        android:id="@+id/iv_back_transaksi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -40,7 +40,7 @@
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_back" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_back_transaksi" />
 
     <TextView
         android:id="@+id/textView51"
@@ -53,7 +53,7 @@
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_jenis_pay" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_jenis_pay_transaksi" />
 
     <TextView
         android:id="@+id/textView47"
@@ -68,7 +68,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView45" />
 
     <TextView
-        android:id="@+id/tv_username"
+        android:id="@+id/tv_username_transaksi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
@@ -79,7 +79,7 @@
         app:layout_constraintTop_toTopOf="@+id/textView47" />
 
     <TextView
-        android:id="@+id/tv_kode_book"
+        android:id="@+id/tv_kode_book_transaksi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
@@ -90,7 +90,7 @@
         app:layout_constraintTop_toTopOf="@+id/textView48" />
 
     <TextView
-        android:id="@+id/tv_tgl"
+        android:id="@+id/tv_tgl_transaksi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
@@ -101,7 +101,7 @@
         app:layout_constraintTop_toTopOf="@+id/textView49" />
 
     <TextView
-        android:id="@+id/tv_total_tf"
+        android:id="@+id/tv_total_tf_transaksi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
@@ -160,7 +160,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView49" />
 
     <ImageView
-        android:id="@+id/iv_bukti"
+        android:id="@+id/iv_bukti_transaksi"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginStart="24dp"
@@ -171,7 +171,7 @@
         app:srcCompat="@drawable/unnamed_image" />
 
     <ImageView
-        android:id="@+id/iv_jenis_pay"
+        android:id="@+id/iv_jenis_pay_transaksi"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginEnd="24dp"

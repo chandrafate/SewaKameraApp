@@ -16,9 +16,9 @@ class AdminKategoriBarangActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin_barang)
 
-        rv_kategori.layoutManager = LinearLayoutManager(this)
+        rc_kategori_admin.layoutManager = LinearLayoutManager(this)
         dummydata()
-        rv_kategori.adapter = AdminKategoriAdapter(dataList) {
+        rc_kategori_admin.adapter = AdminKategoriAdapter(dataList) {
             startActivity(Intent(this, AdminKelolaProdukActivity::class.java).putExtra("kategori", it))
         }
 

@@ -35,7 +35,7 @@ class AdminMemberFragment : Fragment() {
 
         mDatabase = FirebaseDatabase.getInstance().getReference()
 
-        rc_list_member.layoutManager = LinearLayoutManager(context)
+        rc_list_member_admin_fragment.layoutManager = LinearLayoutManager(context)
 
         getData()
     }
@@ -53,7 +53,7 @@ class AdminMemberFragment : Fragment() {
 
                 }
 
-                rc_list_member.adapter = ListMemberAdapter(dataList) {
+                rc_list_member_admin_fragment.adapter = ListMemberAdapter(dataList) {
                     val builder = AlertDialog.Builder(context)
                     builder.setTitle("${it.nama}")
 

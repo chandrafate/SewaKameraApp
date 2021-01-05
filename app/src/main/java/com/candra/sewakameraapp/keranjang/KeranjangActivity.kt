@@ -8,14 +8,12 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.candra.sewakameraapp.R
+import com.candra.sewakameraapp.barang.Barang
 import com.candra.sewakameraapp.checkout.Booking
 import com.candra.sewakameraapp.checkout.CheckoutActivity
-import com.candra.sewakameraapp.barang.Barang
 import com.candra.sewakameraapp.utils.Preferences
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_keranjang.*
-import kotlinx.android.synthetic.main.activity_keranjang.iv_back
-import kotlinx.android.synthetic.main.activity_list_item.*
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
@@ -56,11 +54,11 @@ class KeranjangActivity : AppCompatActivity() {
         mDatabase2 = FirebaseDatabase.getInstance().getReference("member")
             .child(preferences.getValues("username").toString()).child("keranjang")
 
-        iv_back.setOnClickListener {
+        iv_back_keranjang.setOnClickListener {
             finish()
         }
 
-        rc_booking_item.layoutManager = LinearLayoutManager(this)
+        rc_item_keranjang.layoutManager = LinearLayoutManager(this)
 
         getData()
 
@@ -68,11 +66,11 @@ class KeranjangActivity : AppCompatActivity() {
 
 //        pickDate()
 
-        et_tgl_in.setOnClickListener {
+        et_tgl_in_keranjang.setOnClickListener {
             val dpdIn = DatePickerDialog(
                 this,
                 DatePickerDialog.OnDateSetListener { view, stahun, sbulan, shari ->
-                    et_tgl_in.setText("$shari-$sbulan-$stahun")
+                    et_tgl_in_keranjang.setText("$shari-$sbulan-$stahun")
                     tanggalIn = "$shari/$sbulan/$stahun"
 
                     savehari = shari
@@ -87,11 +85,11 @@ class KeranjangActivity : AppCompatActivity() {
             dpdIn.show()
         }
 
-        et_tgl_out.setOnClickListener {
+        et_tgl_out_keranjang.setOnClickListener {
             val dpdIn = DatePickerDialog(
                 this,
                 DatePickerDialog.OnDateSetListener { view, stahun, sbulan, shari ->
-                    et_tgl_out.setText("$shari-$sbulan-$stahun")
+                    et_tgl_out_keranjang.setText("$shari-$sbulan-$stahun")
                     tanggalOut = "$shari/$sbulan/$stahun"
 
                     hitungHari(tanggalIn, tanggalOut)
@@ -99,7 +97,7 @@ class KeranjangActivity : AppCompatActivity() {
                     val localeID = Locale("in", "ID")
                     val formatRupiah = NumberFormat.getCurrencyInstance(localeID)
 
-                    tv_total_checkout.text = formatRupiah.format(totalHargaCheckout).toString()
+                    tv_total_keranjang.text = formatRupiah.format(totalHargaCheckout).toString()
 
                 },
                 savetahun,
@@ -112,7 +110,7 @@ class KeranjangActivity : AppCompatActivity() {
 
         }
 
-        btn_lanjut.setOnClickListener {
+        btn_lanjut_keranjang.setOnClickListener {
             var booking = Booking()
             booking.username = preferences.getValues("username").toString()
             booking.status = "pending"
@@ -132,17 +130,17 @@ class KeranjangActivity : AppCompatActivity() {
         )
         
         if (days > 0) {
-            tv_hari.text = "$days Hari"
+            tv_hari_keranjang.text = "$days Hari"
 
             totalHargaCheckout = totalHargaBarang * days.toInt()
 
-            btn_lanjut.setText("Lanjut Pembayaran(${idProduk.size})")
-            btn_lanjut.visibility = View.VISIBLE
+            btn_lanjut_keranjang.setText("Lanjut Pembayaran(${idProduk.size})")
+            btn_lanjut_keranjang.visibility = View.VISIBLE
         } else {
             totalHargaCheckout = 0
 
-            btn_lanjut.setText("")
-            btn_lanjut.visibility = View.INVISIBLE
+            btn_lanjut_keranjang.setText("")
+            btn_lanjut_keranjang.visibility = View.INVISIBLE
             Toast.makeText(this, "Minimal 1 Hari", Toast.LENGTH_SHORT).show()
         }
 
@@ -169,8 +167,8 @@ class KeranjangActivity : AppCompatActivity() {
                 }
 
                 if (idProduk.isEmpty()) {
-                    et_tgl_in.visibility = View.INVISIBLE
-                    et_tgl_out.visibility = View.INVISIBLE
+                    et_tgl_in_keranjang.visibility = View.INVISIBLE
+                    et_tgl_out_keranjang.visibility = View.INVISIBLE
                     textView9.visibility = View.INVISIBLE
                     imageView3.visibility = View.INVISIBLE
                     textView14.visibility = View.INVISIBLE
@@ -203,9 +201,7 @@ class KeranjangActivity : AppCompatActivity() {
                 }
 
 
-                rc_booking_item.adapter = KeranjangAdapter(dataList) {
-//                    val intent = Intent(this@KeranjangActivity, DetailProdukActivity::class.java)
-//                    startActivity(intent)
+                rc_item_keranjang.adapter = KeranjangAdapter(dataList) {
                 }
             }
 

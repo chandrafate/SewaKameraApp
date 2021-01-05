@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.candra.sewakameraapp.R
 import com.candra.sewakameraapp.adminBarang.AdminKategoriBarangActivity
+import com.candra.sewakameraapp.adminlistbooking.AdminListBookingActivity
 import kotlinx.android.synthetic.main.fragment_admin_home.*
 
 class AdminHomeFragment : Fragment() {
@@ -23,8 +24,12 @@ class AdminHomeFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        btn_produk.setOnClickListener {
+        btn_barang_home_fragment.setOnClickListener {
             startActivity(Intent(context, AdminKategoriBarangActivity::class.java))
+        }
+
+        btn_list_booking_home_fragment.setOnClickListener {
+            startActivity(Intent(context, AdminListBookingActivity::class.java))
         }
     }
 

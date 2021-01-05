@@ -7,7 +7,7 @@
     tools:context=".adminmember.FormVerifikasiMemberActivity">
 
     <ImageView
-        android:id="@+id/iv_back"
+        android:id="@+id/iv_back_form_verifikasi_admin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -17,7 +17,7 @@
         app:srcCompat="@drawable/ic_arrow_back" />
 
     <Button
-        android:id="@+id/btn_upload"
+        android:id="@+id/btn_upload_form_verifikasi_admin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -55,7 +55,7 @@
         android:textColor="@color/blue_background"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_back" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_back_form_verifikasi_admin" />
 
     <TextView
         android:id="@+id/textView61"
@@ -67,10 +67,10 @@
         android:textColor="@color/blue_background"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_ktp" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_ktp_form_verifikasi_admin" />
 
     <ImageView
-        android:id="@+id/iv_ktp"
+        android:id="@+id/iv_ktp_form_verifikasi_admin"
         android:layout_width="230dp"
         android:layout_height="150dp"
         android:layout_marginStart="24dp"
@@ -82,7 +82,7 @@
         app:srcCompat="@drawable/unnamed_image" />
 
     <ImageView
-        android:id="@+id/iv_sim"
+        android:id="@+id/iv_sim_form_verifikasi_admin"
         android:layout_width="230dp"
         android:layout_height="150dp"
         android:layout_marginTop="10dp"
@@ -92,7 +92,7 @@
         app:srcCompat="@drawable/unnamed_image" />
 
     <TextView
-        android:id="@+id/btn_ktp"
+        android:id="@+id/btn_ktp_form_verifikasi_admin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -105,10 +105,10 @@
         android:text="Browse"
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_ktp" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_ktp_form_verifikasi_admin" />
 
     <TextView
-        android:id="@+id/btn_sim"
+        android:id="@+id/btn_sim_form_verifikasi_admin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -121,6 +121,6 @@
         android:text="Browse"
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_sim" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_sim_form_verifikasi_admin" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

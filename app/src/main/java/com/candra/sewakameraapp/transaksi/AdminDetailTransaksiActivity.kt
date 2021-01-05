@@ -15,25 +15,25 @@ class AdminDetailTransaksiActivity : AppCompatActivity() {
 
         val data = intent.getParcelableExtra<Transaksi>("detailTf")
 
-        tv_username.text = data!!.username
-        tv_kode_book.text = data!!.kode_booking
-        tv_tgl.text = data!!.tanggal
+        tv_username_transaksi.text = data!!.username
+        tv_kode_book_transaksi.text = data!!.kode_booking
+        tv_tgl_transaksi.text = data!!.tanggal
 
         if (data.pembayaran.equals("ovo")) {
-            iv_jenis_pay.setImageResource(R.drawable.ovo_unselected)
+            iv_jenis_pay_transaksi.setImageResource(R.drawable.ovo_unselected)
         } else if (data.pembayaran.equals("dana")) {
-            iv_jenis_pay.setImageResource(R.drawable.dana_unselected)
+            iv_jenis_pay_transaksi.setImageResource(R.drawable.dana_unselected)
         } else if (data.pembayaran.equals("ditempat")) {
-            iv_jenis_pay.setImageResource(R.drawable.cod_unselected)
+            iv_jenis_pay_transaksi.setImageResource(R.drawable.cod_unselected)
         }
 
-        tv_total_tf.text =
+        tv_total_tf_transaksi.text =
             formatHarga(data.total!!).substring(0, formatHarga(data.total!!).length - 3)
 
         Glide.with(this).load(data.bukti_transfer).
-        placeholder(R.drawable.unnamed_image).fitCenter().into(iv_bukti)
+        placeholder(R.drawable.unnamed_image).fitCenter().into(iv_bukti_transaksi)
 
-        iv_back.setOnClickListener {
+        iv_back_transaksi.setOnClickListener {
             finish()
         }
     }

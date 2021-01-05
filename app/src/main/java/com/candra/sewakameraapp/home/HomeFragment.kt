@@ -33,13 +33,13 @@ class HomeFragment : Fragment() {
 
         preferences = Preferences(activity!!.applicationContext)
 
-        tv_jumlah_item.setText(preferences.getValues("nama"))
+        tv_nama_home.setText(preferences.getValues("nama"))
 
-        btn_kategori.setOnClickListener {
+        btn_kategori_home.setOnClickListener {
             startActivity(Intent(context, MenuKategoriActivity::class.java))
         }
 
-        iv_keranjang.setOnClickListener {
+        iv_keranjang_home.setOnClickListener {
             startActivity(Intent(context, KeranjangActivity::class.java))
         }
 
@@ -49,8 +49,8 @@ class HomeFragment : Fragment() {
 
 
     private fun initListener() {
-        rv_kategori.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        rv_kategori.adapter = KategoriAdapter(dataList) {
+        rc_item_kategori_home.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        rc_item_kategori_home.adapter = KategoriAdapter(dataList) {
 
         }
     }

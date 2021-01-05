@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/et_nama"
+        android:id="@+id/et_nama_signup"
         android:layout_width="0dp"
         android:layout_height="50sp"
         android:layout_marginStart="24dp"
@@ -42,7 +42,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
-        android:id="@+id/et_username"
+        android:id="@+id/et_username_signup"
         android:layout_width="0dp"
         android:layout_height="50sp"
         android:layout_marginStart="24dp"
@@ -58,10 +58,10 @@
         android:textColorHint="@color/light_blue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_nama" />
+        app:layout_constraintTop_toBottomOf="@+id/et_nama_signup" />
 
     <EditText
-        android:id="@+id/et_email"
+        android:id="@+id/et_email_signup"
         android:layout_width="0dp"
         android:layout_height="50sp"
         android:layout_marginStart="24dp"
@@ -76,10 +76,10 @@
         android:textColorHint="@color/light_blue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_username" />
+        app:layout_constraintTop_toBottomOf="@+id/et_username_signup" />
 
     <ImageView
-        android:id="@+id/iv_back_list_item"
+        android:id="@+id/iv_back_sign_up"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginStart="24dp"
@@ -89,7 +89,7 @@
         app:srcCompat="@drawable/ic_arrow_back" />
 
     <EditText
-        android:id="@+id/et_password"
+        android:id="@+id/et_password_signup"
         android:layout_width="0dp"
         android:layout_height="50sp"
         android:layout_marginStart="24dp"
@@ -104,10 +104,10 @@
         android:textColorHint="@color/light_blue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_email" />
+        app:layout_constraintTop_toBottomOf="@+id/et_email_signup" />
 
     <EditText
-        android:id="@+id/et_password2"
+        android:id="@+id/et_password2_signup"
         android:layout_width="0dp"
         android:layout_height="50sp"
         android:layout_marginStart="24dp"
@@ -122,7 +122,7 @@
         android:textColorHint="@color/light_blue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_password" />
+        app:layout_constraintTop_toBottomOf="@+id/et_password_signup" />
 
     <Button
         android:id="@+id/btn_sign_up"

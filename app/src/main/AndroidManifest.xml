@@ -21,7 +21,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.noActionBar">
-        <activity android:name=".adminmember.FormVerifikasiMemberActivity"></activity>
+        <activity android:name=".adminlistbooking.AdminListBookingActivity"></activity>
+        <activity android:name=".adminmember.FormVerifikasiMemberActivity" />
         <activity android:name=".adminBarang.FormTambahbarangActivity" />
         <activity android:name=".adminBarang.AdminKelolaProdukActivity" />
         <activity android:name=".adminBarang.AdminKategoriBarangActivity" />

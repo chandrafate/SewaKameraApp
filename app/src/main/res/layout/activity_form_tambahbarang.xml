@@ -8,17 +8,17 @@
     tools:context=".adminBarang.FormTambahbarangActivity">
 
     <ImageView
-        android:id="@+id/iv_gambar_produk"
+        android:id="@+id/iv_gambar_form_tambah_barang_admin"
         android:layout_width="130dp"
         android:layout_height="130dp"
         android:layout_marginTop="30dp"
         android:src="@drawable/unnamed_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_back12" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_back_form_tambah_barang_admin" />
 
     <ImageView
-        android:id="@+id/iv_back12"
+        android:id="@+id/iv_back_form_tambah_barang_admin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -41,7 +41,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/et_nama"
+        android:id="@+id/et_nama_form_tambah_barang_admin"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="24dp"
@@ -53,10 +53,10 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_gambar_produk" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_gambar_form_tambah_barang_admin" />
 
     <EditText
-        android:id="@+id/et_jenis"
+        android:id="@+id/et_jenis_form_tambah_barang_admin"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="24dp"
@@ -69,10 +69,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_nama" />
+        app:layout_constraintTop_toBottomOf="@+id/et_nama_form_tambah_barang_admin" />
 
     <EditText
-        android:id="@+id/et_ket"
+        android:id="@+id/et_ket_form_tambah_barang_admin"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="24dp"
@@ -85,10 +85,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_jenis" />
+        app:layout_constraintTop_toBottomOf="@+id/et_jenis_form_tambah_barang_admin" />
 
     <EditText
-        android:id="@+id/et_stok"
+        android:id="@+id/et_stok_form_tambah_barang_admin"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="24dp"
@@ -101,10 +101,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_harga" />
+        app:layout_constraintTop_toBottomOf="@+id/et_harga_form_tambah_barang_admin" />
 
     <EditText
-        android:id="@+id/et_harga"
+        android:id="@+id/et_harga_form_tambah_barang_admin"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="24dp"
@@ -117,10 +117,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_ket" />
+        app:layout_constraintTop_toBottomOf="@+id/et_ket_form_tambah_barang_admin" />
 
     <Button
-        android:id="@+id/btn_tambah"
+        android:id="@+id/btn_tambah_form_tambah_barang_admin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -139,9 +139,9 @@
         android:id="@+id/btn_add"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_gambar_produk"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_gambar_form_tambah_barang_admin"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/iv_gambar_produk"
+        app:layout_constraintStart_toStartOf="@+id/iv_gambar_form_tambah_barang_admin"
         app:srcCompat="@drawable/ic_btn_plus" />
 
 

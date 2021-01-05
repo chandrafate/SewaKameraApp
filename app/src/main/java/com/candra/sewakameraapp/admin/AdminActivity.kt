@@ -45,24 +45,26 @@ class AdminActivity : AppCompatActivity() {
         val fragmentHome = AdminHomeFragment()
         val fragmentMember = AdminMemberFragment()
 
-        iv_scan_menu.setOnClickListener {
+        iv_scan_menu_admin.setOnClickListener {
             cekPermission(android.Manifest.permission.CAMERA, "camera", CAMERA_RO)
             showScanMenu()
         }
 
         setFragment(fragmentHome)
 
-        iv_menu_home.setOnClickListener {
+        iv_menu_home_admin.setOnClickListener {
             setFragment(fragmentHome)
-            iv_menu_user.setImageResource(R.drawable.ic_user_unaktif)
-            iv_menu_home.setImageResource(R.drawable.ic_home_aktif)
+            iv_menu_user_admin.setImageResource(R.drawable.ic_user_unaktif)
+            iv_menu_home_admin.setImageResource(R.drawable.ic_home_aktif)
         }
 
-        iv_menu_user.setOnClickListener {
+        iv_menu_user_admin.setOnClickListener {
             setFragment(fragmentMember)
-            iv_menu_user.setImageResource(R.drawable.ic_user_aktif)
-            iv_menu_home.setImageResource(R.drawable.ic_home_unaktif)
+            iv_menu_user_admin.setImageResource(R.drawable.ic_user_aktif)
+            iv_menu_home_admin.setImageResource(R.drawable.ic_home_unaktif)
         }
+
+
     }
 
     private fun cekPermission(permission: String, name: String, requestCode: Int) {
@@ -214,7 +216,7 @@ class AdminActivity : AppCompatActivity() {
     private fun setFragment(fragment: Fragment) {
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.frame_layout, fragment)
+        fragmentTransaction.replace(R.id.frame_layout_admin, fragment)
         fragmentTransaction.commit()
     }
 }

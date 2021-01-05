@@ -8,7 +8,7 @@
     tools:context=".adminBarang.AdminKelolaProdukActivity">
 
     <ImageView
-        android:id="@+id/iv_back_8"
+        android:id="@+id/iv_back_kelola_barang_admin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -31,7 +31,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rc_kelola_brg"
+        android:id="@+id/rc_kelola_barang_admin"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginStart="24dp"
@@ -43,7 +43,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView53" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btn_tambah"
+        android:id="@+id/btn_tambah_kelola_barang_admin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/blue_background"

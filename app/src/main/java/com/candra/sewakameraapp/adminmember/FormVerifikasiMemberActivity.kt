@@ -42,21 +42,21 @@ class FormVerifikasiMemberActivity : AppCompatActivity() {
         firebaseStore = FirebaseStorage.getInstance()
         storageReference = FirebaseStorage.getInstance().reference
 
-        btn_ktp.setOnClickListener {
+        btn_ktp_form_verifikasi_admin.setOnClickListener {
             switchUpload = 1
             launchGallery()
         }
 
-        btn_sim.setOnClickListener {
+        btn_sim_form_verifikasi_admin.setOnClickListener {
             switchUpload = 2
             launchGallery()
         }
 
-        iv_back.setOnClickListener {
+        iv_back_form_verifikasi_admin.setOnClickListener {
             finish()
         }
 
-        btn_upload.setOnClickListener {
+        btn_upload_form_verifikasi_admin.setOnClickListener {
             prosesUpload(intent.getStringExtra("verifikasi").toString())
         }
 
@@ -76,14 +76,14 @@ class FormVerifikasiMemberActivity : AppCompatActivity() {
 
             Glide.with(this)
                 .load(fileKtp)
-                .into(iv_ktp)
+                .into(iv_ktp_form_verifikasi_admin)
 
         } else if (resultCode == Activity.RESULT_OK && switchUpload == 2) {
             fileSim = data?.data!!
 
             Glide.with(this)
                 .load(fileSim)
-                .into(iv_sim)
+                .into(iv_sim_form_verifikasi_admin)
 
         }
     }

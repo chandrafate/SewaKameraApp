@@ -37,9 +37,9 @@ class ListMemberAdapter(private var data: List<Member>,
 
     class LeagueViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-        private val ivpic: ImageView = view.findViewById(R.id.iv_profile)
-        private val tvnama: TextView = view.findViewById(R.id.tv_nama)
-        private val tvusername: TextView = view.findViewById(R.id.tv_username)
+        private val ivpic: ImageView = view.findViewById(R.id.iv_profile_member_admin)
+        private val tvnama: TextView = view.findViewById(R.id.tv_nama_member_admin)
+        private val tvusername: TextView = view.findViewById(R.id.tv_username_member_admin)
 
         fun bindItem(data: Member, listener: (Member) -> Unit, context : Context, position : Int) {
 

@@ -31,15 +31,15 @@ class MemberFragment : Fragment() {
 
         preferences = Preferences(activity!!.applicationContext)
 
-        tv_nama.setText(preferences.getValues("nama"))
+        tv_nama_member_fragment.setText(preferences.getValues("nama"))
 
         if (preferences.getValues("status").equals("ya")) {
-            tv_verifed.text = "Sudah Terverifikasi"
+            tv_verifed_member_fragment.text = "Sudah Terverifikasi"
         } else {
-            tv_verifed.text = "Belum Diverifikasi"
+            tv_verifed_member_fragment.text = "Belum Diverifikasi"
         }
 
-        iv_settings.setOnClickListener {
+        iv_settings_member_fragment.setOnClickListener {
             startActivity(Intent(context, EditMemberActivity::class.java))
         }
 
@@ -47,9 +47,9 @@ class MemberFragment : Fragment() {
             Glide.with(this)
                 .load(preferences.getValues("gambar"))
                 .apply(RequestOptions.circleCropTransform())
-                .into(iv_pic);
+                .into(iv_pic_member_fragment);
         } else {
-            iv_pic.setImageResource(R.drawable.user_pic)
+            iv_pic_member_fragment.setImageResource(R.drawable.user_pic)
         }
 
 //        val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment

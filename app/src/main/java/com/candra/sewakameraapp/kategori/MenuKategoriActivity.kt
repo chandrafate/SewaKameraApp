@@ -16,14 +16,14 @@ class MenuKategoriActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu_kategori)
 
-        rv_menu_kategori.layoutManager = GridLayoutManager(this, 2)
+        rc_menu_kategori.layoutManager = GridLayoutManager(this, 2)
         dummydata()
-        rv_menu_kategori.adapter = MenuKategoriAdapter(dataList) {
+        rc_menu_kategori.adapter = MenuKategoriAdapter(dataList) {
             val intent = Intent(this, ListItemActivity::class.java).putExtra("kategori", it)
             startActivity(intent)
         }
 
-        iv_back_list_item.setOnClickListener {
+        iv_back_menu_kategori.setOnClickListener {
             finish()
         }
 

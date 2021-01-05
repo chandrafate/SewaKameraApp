@@ -18,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
-            android:id="@+id/iv_menu_home"
+            android:id="@+id/iv_menu_home_admin"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -26,7 +26,7 @@
             android:src="@drawable/ic_home_aktif" />
 
         <ImageView
-            android:id="@+id/iv_scan_menu"
+            android:id="@+id/iv_scan_menu_admin"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:padding="6dp"
@@ -34,7 +34,7 @@
             android:src="@drawable/menu_scan" />
 
         <ImageView
-            android:id="@+id/iv_menu_user"
+            android:id="@+id/iv_menu_user_admin"
             android:layout_width="0dp"
             android:padding="15dp"
             android:layout_height="match_parent"
@@ -44,7 +44,7 @@
     </LinearLayout>
 
     <FrameLayout
-        android:id="@+id/frame_layout"
+        android:id="@+id/frame_layout_admin"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"

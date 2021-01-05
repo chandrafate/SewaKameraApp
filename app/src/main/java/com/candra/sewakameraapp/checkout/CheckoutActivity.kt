@@ -36,13 +36,15 @@ class CheckoutActivity : AppCompatActivity() {
 
         val booking = intent.getParcelableExtra<Booking>("booking")
 
+        tv_total_harga_checkout.text = booking!!.total.toString()
 
-        iv_back.setOnClickListener {
+
+        iv_back_checkout.setOnClickListener {
             finish()
         }
 
         btn_checkout.setOnClickListener {
-            pushBooking(booking!!)
+            pushBooking(booking)
         }
 
         iv_ovo.setOnClickListener {
@@ -130,8 +132,7 @@ class CheckoutActivity : AppCompatActivity() {
         bundle.putParcelable("detailBooking", booking2)
         mIntent.putExtras(bundle)
 
-        val pendingIntent =
-            PendingIntent.getActivity(this, 0, mIntent, PendingIntent.FLAG_UPDATE_CURRENT)
+        val pendingIntent = PendingIntent.getActivity(this, 0, mIntent, PendingIntent.FLAG_UPDATE_CURRENT)
 
         val builder = NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID)
         builder.setContentIntent(pendingIntent)

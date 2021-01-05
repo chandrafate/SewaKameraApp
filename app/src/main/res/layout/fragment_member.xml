@@ -24,7 +24,7 @@
 
 
         <ImageView
-            android:id="@+id/iv_pic"
+            android:id="@+id/iv_pic_member_fragment"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginTop="50dp"
@@ -34,7 +34,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/iv_settings"
+            android:id="@+id/iv_settings_member_fragment"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginTop="34dp"
@@ -44,7 +44,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tv_nama"
+            android:id="@+id/tv_nama_member_fragment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -57,7 +57,7 @@
             tools:text="Candra Pangestu" />
 
         <TextView
-            android:id="@+id/tv_verifed"
+            android:id="@+id/tv_verifed_member_fragment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -68,7 +68,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_nama"
+            app:layout_constraintTop_toBottomOf="@+id/tv_nama_member_fragment"
             tools:text="Belum Di Verifikasi" />
 
         <ImageView

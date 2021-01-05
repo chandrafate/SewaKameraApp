@@ -17,9 +17,6 @@ import com.candra.sewakameraapp.transaksi.AdminDetailTransaksiActivity
 import com.candra.sewakameraapp.transaksi.Transaksi
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_admin_detail_booking.*
-import kotlinx.android.synthetic.main.activity_admin_detail_booking.tv_denda
-import kotlinx.android.synthetic.main.activity_admin_detail_booking.tv_hari
-import kotlinx.android.synthetic.main.activity_detail_booking.*
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
@@ -43,34 +40,34 @@ class AdminDetailBookingActivity : AppCompatActivity() {
 
         keranjang = intent.getSerializableExtra("listBarang") as ArrayList<Keranjang>
 
-        tv_kode.text = data!!.key
-        tv_nama.text = intent.getStringExtra("nama")
-        tv_username.text = data!!.username
-        tv_tgl_in.text = data!!.tgl_in
-        tv_tgl_out.text = data!!.tgl_out
-        tv_hari.text = hitungHari(data.tgl_in!!, data.tgl_out!!)
-        tv_status.text = data!!.status
-        tv_denda.text = formatHarga(data.denda!!).substring(0, formatHarga(data.denda!!).length - 3)
-        tv_total.text = formatHarga(data.total!!).substring(0, formatHarga(data.total!!).length - 3)
+        tv_kode_detail_booking_admin.text = data!!.key
+        tv_nama_detail_booking_admin.text = intent.getStringExtra("nama")
+        tv_username_detail_booking_admin.text = data.username
+        tv_tgl_in_detail_booking_admin.text = data.tgl_in
+        tv_tgl_out_detail_booking_admin.text = data.tgl_out
+        tv_hari_detail_booking_admin.text = hitungHari(data.tgl_in!!, data.tgl_out!!)
+        tv_status_detail_booking_admin.text = data.status
+        tv_denda_detail_booking_admin.text = formatHarga(data.denda!!).substring(0, formatHarga(data.denda!!).length - 3)
+        tv_total_detail_booking_admin.text = formatHarga(data.total!!).substring(0, formatHarga(data.total!!).length - 3)
 
-        rc_list_barang.layoutManager = LinearLayoutManager(this)
+        rc_list_detail_booking_admin.layoutManager = LinearLayoutManager(this)
 
-        iv_back2.setOnClickListener {
+        iv_back_detail_booking_admin.setOnClickListener {
             finish()
         }
 
-        btn_detail_tf.setOnClickListener {
+        btn_detail_tf_detail_booking_admin.setOnClickListener {
             detailTf(data.key!!)
         }
 
         getData()
 
         if (data!!.status.equals("success")) {
-            btn_tolak.visibility = View.INVISIBLE
-            btn_terima.setText("Konfirmasi Pengembalian")
+            btn_tolak_detail_booking_admin.visibility = View.INVISIBLE
+            btn_terima_detail_booking_admin.setText("Konfirmasi Pengembalian")
         }
 
-        btn_terima.setOnClickListener {
+        btn_terima_detail_booking_admin.setOnClickListener {
             if (data!!.status.equals("pending")) {
                 terimaBooking(data.key!!)
             } else if (data!!.status.equals("success")) {
@@ -78,7 +75,7 @@ class AdminDetailBookingActivity : AppCompatActivity() {
             }
         }
 
-        btn_tolak.setOnClickListener {
+        btn_tolak_detail_booking_admin.setOnClickListener {
             tolakBooking(data.key)
         }
     }
@@ -116,7 +113,7 @@ class AdminDetailBookingActivity : AppCompatActivity() {
                         }
                     }
                 }
-                rc_list_barang.adapter = ListItemBookingAdapter(barang) {
+                rc_list_detail_booking_admin.adapter = ListItemBookingAdapter(barang) {
                 }
             }
 

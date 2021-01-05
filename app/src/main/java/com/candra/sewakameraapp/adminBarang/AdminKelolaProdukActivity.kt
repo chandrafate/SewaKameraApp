@@ -33,12 +33,12 @@ class AdminKelolaProdukActivity : AppCompatActivity() {
 
         mDatabase = FirebaseDatabase.getInstance().getReference()
 
-        rc_kelola_brg.layoutManager = LinearLayoutManager(this)
+        rc_kelola_barang_admin.layoutManager = LinearLayoutManager(this)
 
-        iv_back_8.setOnClickListener {
+        iv_back_kelola_barang_admin.setOnClickListener {
             finish()
         }
-        btn_tambah.setOnClickListener {
+        btn_tambah_kelola_barang_admin.setOnClickListener {
             startActivity(
                 Intent(this, FormTambahbarangActivity::class.java).putExtra(
                     "kategori",
@@ -66,7 +66,7 @@ class AdminKelolaProdukActivity : AppCompatActivity() {
 
                 }
 
-                rc_kelola_brg.adapter = ListBarangAdminAdapter(dataList) {
+                rc_kelola_barang_admin.adapter = ListBarangAdminAdapter(dataList) {
                     val builder = AlertDialog.Builder(this@AdminKelolaProdukActivity)
                     builder.setTitle("${it.nama}")
 

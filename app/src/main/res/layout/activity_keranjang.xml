@@ -13,7 +13,7 @@
         tools:context=".keranjang.KeranjangActivity">
 
         <ImageView
-            android:id="@+id/iv_back"
+            android:id="@+id/iv_back_keranjang"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginStart="24dp"
@@ -23,7 +23,7 @@
             app:srcCompat="@drawable/ic_arrow_back" />
 
         <TextView
-            android:id="@+id/tv_jumlah_item"
+            android:id="@+id/tv_kode_as"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="34dp"
@@ -36,7 +36,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rc_booking_item"
+            android:id="@+id/rc_item_keranjang"
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:layout_marginStart="24dp"
@@ -44,7 +44,7 @@
             android:layout_marginEnd="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_jumlah_item" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_kode_as" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -53,10 +53,10 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rc_booking_item">
+            app:layout_constraintTop_toBottomOf="@+id/rc_item_keranjang">
 
             <Button
-                android:id="@+id/btn_lanjut"
+                android:id="@+id/btn_lanjut_keranjang"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
@@ -89,7 +89,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/et_tgl_in"
+                android:id="@+id/et_tgl_in_keranjang"
                 android:layout_width="0dp"
                 android:layout_height="40sp"
                 android:layout_marginStart="24dp"
@@ -108,7 +108,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
             <EditText
-                android:id="@+id/et_tgl_out"
+                android:id="@+id/et_tgl_out_keranjang"
                 android:layout_width="0dp"
                 android:layout_height="40sp"
                 android:layout_marginStart="8dp"
@@ -123,7 +123,7 @@
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageView3"
-                app:layout_constraintTop_toTopOf="@+id/et_tgl_in" />
+                app:layout_constraintTop_toTopOf="@+id/et_tgl_in_keranjang" />
 
             <ImageView
                 android:id="@+id/imageView3"
@@ -145,10 +145,10 @@
                 android:textColor="@color/blue_background"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/et_tgl_in" />
+                app:layout_constraintTop_toBottomOf="@+id/et_tgl_in_keranjang" />
 
             <TextView
-                android:id="@+id/tv_hari"
+                android:id="@+id/tv_hari_keranjang"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
@@ -173,7 +173,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
             <TextView
-                android:id="@+id/tv_total_checkout"
+                android:id="@+id/tv_total_keranjang"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"

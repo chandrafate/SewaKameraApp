@@ -8,7 +8,7 @@
     tools:context=".member.EditMemberActivity">
 
     <ImageView
-        android:id="@+id/iv_back"
+        android:id="@+id/iv_back_edit_member"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -31,7 +31,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/et_full_name"
+        android:id="@+id/et_full_name_edit_member"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="24dp"
@@ -45,10 +45,10 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_user" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_user_edit_member" />
 
     <EditText
-        android:id="@+id/et_username"
+        android:id="@+id/et_username_edit_member"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="24dp"
@@ -64,10 +64,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_full_name" />
+        app:layout_constraintTop_toBottomOf="@+id/et_full_name_edit_member" />
 
     <EditText
-        android:id="@+id/et_email"
+        android:id="@+id/et_email_edit_member"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="24dp"
@@ -82,10 +82,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_username" />
+        app:layout_constraintTop_toBottomOf="@+id/et_username_edit_member" />
 
     <EditText
-        android:id="@+id/et_password"
+        android:id="@+id/et_password_edit_member"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="24dp"
@@ -103,7 +103,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView36" />
 
     <EditText
-        android:id="@+id/et_password_2"
+        android:id="@+id/et_password_2_edit_member"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="24dp"
@@ -118,10 +118,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_password" />
+        app:layout_constraintTop_toBottomOf="@+id/et_password_edit_member" />
 
     <ImageView
-        android:id="@+id/iv_user"
+        android:id="@+id/iv_user_edit_member"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="16dp"
@@ -131,7 +131,7 @@
         app:srcCompat="@drawable/user_pic" />
 
     <Button
-        android:id="@+id/btn_simpan"
+        android:id="@+id/btn_simpan_edit_member"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -147,11 +147,11 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/iv_btn_plus"
+        android:id="@+id/iv_btn_plus_edit_member"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_user"
-        app:layout_constraintEnd_toEndOf="@+id/iv_user"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_user_edit_member"
+        app:layout_constraintEnd_toEndOf="@+id/iv_user_edit_member"
         app:srcCompat="@drawable/ic_btn_plus" />
 
     <TextView
@@ -164,5 +164,5 @@
         android:textColor="@color/blue_background"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_email" />
+        app:layout_constraintTop_toBottomOf="@+id/et_email_edit_member" />
 </androidx.constraintlayout.widget.ConstraintLayout>

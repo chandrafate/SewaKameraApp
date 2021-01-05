@@ -31,26 +31,26 @@ class DetailBarangActivity : AppCompatActivity() {
 
         val data = intent.getParcelableExtra<Barang>("detailitem")
 
-        tv_jumlah_item.text = data?.nama
-        tv_stok.text = data?.stok.toString()
-        tv_total_sewa.text = data?.totalSewa.toString()
-        tv_jenis.text = data?.jenis
-        tv_keterangan.text = data?.keterangan
+        tv_nama_detail_barang.text = data?.nama
+        tv_stok_detail_barang.text = data?.stok.toString()
+        tv_total_sewa_detail_barang.text = data?.totalSewa.toString()
+        tv_jenis_detail_barang.text = data?.jenis
+        tv_keterangan_detail_barang.text = data?.keterangan
 
         val localeID = Locale("in", "ID")
         val formatRupiah = NumberFormat.getCurrencyInstance(localeID)
-        tv_harga.text = formatRupiah.format(data?.harga).toString()
+        tv_harga_detail_barang.text = formatRupiah.format(data?.harga).toString()
 
         Glide.with(this)
             .load(data?.gambar)
-            .into(iv_gambar)
+            .into(iv_gambar_detail_barang)
 
-        btn_tambah_keranjang.setOnClickListener {
+        btn_tambah_keranjang_detail_barang.setOnClickListener {
 
             data?.id?.let { it1 -> insertKeranjang(it1) }
         }
 
-        iv_back.setOnClickListener {
+        iv_back_detail_barang.setOnClickListener {
             finish()
         }
     }

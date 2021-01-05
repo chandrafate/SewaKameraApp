@@ -37,9 +37,10 @@ class ListItemAdapter(private var data: List<Barang>,
 
     class LeagueViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-        private val ivitem: ImageView = view.findViewById(R.id.iv_profile)
-        private val tvnama: TextView = view.findViewById(R.id.tv_jumlah_item)
-        private val tvharga: TextView = view.findViewById(R.id.tv_harga)
+        private val ivproduk: ImageView = view.findViewById(R.id.iv_item_produk)
+        private val tvnama: TextView = view.findViewById(R.id.tv_item_nama_produk)
+        private val tvharga: TextView = view.findViewById(R.id.tv_item_harga_produk)
+        private val tvjenis: TextView = view.findViewById(R.id.tv_item_jenis_produk)
 
         fun bindItem(data: Barang, listener: (Barang) -> Unit, context : Context, position : Int) {
 
@@ -47,6 +48,7 @@ class ListItemAdapter(private var data: List<Barang>,
             val formatRupiah = NumberFormat.getCurrencyInstance(localeID)
 
             tvnama.text = data.nama
+            tvjenis.text = data.jenis
             tvharga.text = formatRupiah.format(data.harga).toString()
 
 
@@ -54,7 +56,7 @@ class ListItemAdapter(private var data: List<Barang>,
             Glide.with(context)
                 .load(data.gambar)
                 .override(320, 300)
-                .into(ivitem);
+                .into(ivproduk);
 
             itemView.setOnClickListener {
 //                ngirim data ketika diclick

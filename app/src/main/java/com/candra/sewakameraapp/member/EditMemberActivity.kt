@@ -59,52 +59,52 @@ class EditMemberActivity : AppCompatActivity() {
         firebaseStore = FirebaseStorage.getInstance()
         storageReference = FirebaseStorage.getInstance().reference
 
-        iv_back.setOnClickListener {
+        iv_back_edit_member.setOnClickListener {
             finish()
         }
 
-        et_full_name.setText(preferences.getValues("nama"))
-        et_username.setText(preferences.getValues("username"))
-        et_email.setText(preferences.getValues("email"))
+        et_full_name_edit_member.setText(preferences.getValues("nama"))
+        et_username_edit_member.setText(preferences.getValues("username"))
+        et_email_edit_member.setText(preferences.getValues("email"))
 
 
         if (preferences.getValues("gambar")!!.isNotEmpty()) {
             Glide.with(this)
                 .load(preferences.getValues("gambar"))
                 .apply(RequestOptions.circleCropTransform())
-                .into(iv_user);
-            iv_btn_plus.setImageResource(R.drawable.ic_cancel_red)
-            btn_simpan.visibility = View.VISIBLE
+                .into(iv_user_edit_member);
+            iv_btn_plus_edit_member.setImageResource(R.drawable.ic_cancel_red)
+            btn_simpan_edit_member.visibility = View.VISIBLE
             statusAdd = true
         } else {
-            iv_user.setImageResource(R.drawable.user_pic)
+            iv_user_edit_member.setImageResource(R.drawable.user_pic)
         }
 
-        showButton(et_full_name, preferences.getValues("nama").toString())
-        showButton(et_email, preferences.getValues("email").toString())
-        showButton(et_password, "")
-        showButton(et_password_2, "")
+        showButton(et_full_name_edit_member, preferences.getValues("nama").toString())
+        showButton(et_email_edit_member, preferences.getValues("email").toString())
+        showButton(et_password_edit_member, "")
+        showButton(et_password_2_edit_member, "")
 
-        btn_simpan.setOnClickListener {
-            sNama = et_full_name.text.toString()
-            sEmail = et_email.text.toString()
-            sPassword = et_password.text.toString()
-            sPassword2 = et_password_2.text.toString()
+        btn_simpan_edit_member.setOnClickListener {
+            sNama = et_full_name_edit_member.text.toString()
+            sEmail = et_email_edit_member.text.toString()
+            sPassword = et_password_edit_member.text.toString()
+            sPassword2 = et_password_2_edit_member.text.toString()
 
             if (sNama.equals("")) {
-                et_full_name.error = "Silahkan isi nama anda"
-                et_full_name.requestFocus()
+                et_full_name_edit_member.error = "Silahkan isi nama anda"
+                et_full_name_edit_member.requestFocus()
             } else if (sEmail.equals("")) {
-                et_email.error = "Silahkan isi email anda"
-                et_email.requestFocus()
+                et_email_edit_member.error = "Silahkan isi email anda"
+                et_email_edit_member.requestFocus()
             } else {
                 if (sPassword.isNotEmpty() || sPassword2.isNotEmpty()) {
                     if (sPassword.equals(sPassword2)) {
                         prosesUpdate()
                     } else {
-                        et_password.error = "Password tidak sama"
-                        et_password_2.error = "Password tidak sama"
-                        et_password.requestFocus()
+                        et_password_edit_member.error = "Password tidak sama"
+                        et_password_2_edit_member.error = "Password tidak sama"
+                        et_password_edit_member.requestFocus()
                     }
                 } else {
                     sPassword = preferences.getValues("password").toString()
@@ -114,11 +114,11 @@ class EditMemberActivity : AppCompatActivity() {
             }
         }
 
-        iv_btn_plus.setOnClickListener {
+        iv_btn_plus_edit_member.setOnClickListener {
             if (statusAdd) {
                 statusAdd = false
-                iv_btn_plus.setImageResource(R.drawable.ic_btn_plus)
-                iv_user.setImageResource(R.drawable.user_pic)
+                iv_btn_plus_edit_member.setImageResource(R.drawable.ic_btn_plus)
+                iv_user_edit_member.setImageResource(R.drawable.user_pic)
             } else {
                 launchGallery()
             }
@@ -141,9 +141,9 @@ class EditMemberActivity : AppCompatActivity() {
             Glide.with(this)
                 .load(filePath)
                 .apply(RequestOptions.circleCropTransform())
-                .into(iv_user)
+                .into(iv_user_edit_member)
 
-            iv_btn_plus.setImageResource(R.drawable.ic_cancel_red)
+            iv_btn_plus_edit_member.setImageResource(R.drawable.ic_cancel_red)
 
         } else {
             Toast.makeText(this, "Task Cancelled", Toast.LENGTH_SHORT).show()
@@ -219,10 +219,10 @@ class EditMemberActivity : AppCompatActivity() {
             override fun afterTextChanged(s: Editable?) {
                 try {
                     if (s.toString() == ori) {
-                        btn_simpan.visibility = View.INVISIBLE
+                        btn_simpan_edit_member.visibility = View.INVISIBLE
 
                     } else {
-                        btn_simpan.visibility = View.VISIBLE
+                        btn_simpan_edit_member.visibility = View.VISIBLE
                     }
                 } catch (e: NumberFormatException) {
                 }

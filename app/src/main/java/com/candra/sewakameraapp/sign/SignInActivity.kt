@@ -48,20 +48,20 @@ class SignInActivity : AppCompatActivity() {
 
         btn_sign_in.setOnClickListener {
 
-            iUsername = et_username.text.toString()
-            iPassword = et_password.text.toString()
+            iUsername = et_username_signin.text.toString()
+            iPassword = et_password_signin.text.toString()
 
             if (iUsername.equals("")) {
-                et_username.error = "Silahkan tulis Email Anda"
-                et_username.requestFocus()
+                et_username_signin.error = "Silahkan tulis Email Anda"
+                et_username_signin.requestFocus()
             } else if (iPassword.equals("")) {
-                et_password.error = "Silahkan tulis Password Anda"
-                et_password.requestFocus()
+                et_password_signin.error = "Silahkan tulis Password Anda"
+                et_password_signin.requestFocus()
             } else {
                 var statusUsername = iUsername.indexOf(".")
                 if (statusUsername >= 0) {
-                    et_username.error = "Silahkan tulis email dengan benar ."
-                    et_username.requestFocus()
+                    et_username_signin.error = "Silahkan tulis email dengan benar ."
+                    et_username_signin.requestFocus()
                 } else {
                     pushLogin(iUsername, iPassword)
                 }

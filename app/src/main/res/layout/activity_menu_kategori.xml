@@ -8,7 +8,7 @@
     tools:context=".kategori.MenuKategoriActivity">
 
     <ImageView
-        android:id="@+id/iv_back_list_item"
+        android:id="@+id/iv_back_menu_kategori"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginStart="24dp"
@@ -31,7 +31,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_menu_kategori"
+        android:id="@+id/rc_menu_kategori"
         android:layout_width="match_parent"
         android:layout_gravity="center_vertical"
         android:layout_height="0dp"

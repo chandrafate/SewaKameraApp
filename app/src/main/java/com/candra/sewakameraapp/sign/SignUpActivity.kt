@@ -28,38 +28,38 @@ class SignUpActivity : AppCompatActivity() {
         mDatabase = FirebaseDatabase.getInstance().getReference("member")
         preferences = Preferences(this)
 
-        iv_back_list_item.setOnClickListener {
+        iv_back_sign_up.setOnClickListener {
             startActivity(Intent(this, SignInActivity::class.java))
         }
 
         btn_sign_up.setOnClickListener {
-            sUsername = et_username.text.toString()
-            sPassword = et_password.text.toString()
-            sPassword2 = et_password2.text.toString()
-            sNama = et_nama.text.toString()
-            sEmail = et_email.text.toString()
+            sUsername = et_username_signup.text.toString()
+            sPassword = et_password_signup.text.toString()
+            sPassword2 = et_password2_signup.text.toString()
+            sNama = et_nama_signup.text.toString()
+            sEmail = et_email_signup.text.toString()
 
 
             if (sNama.equals("")) {
-                et_nama.error = "Silahkan isi nama anda"
-                et_nama.requestFocus()
+                et_nama_signup.error = "Silahkan isi nama anda"
+                et_nama_signup.requestFocus()
             }else if (sUsername.equals("")) {
-                et_username.error = "Silahkan isi username anda"
-                et_username.requestFocus()
+                et_username_signup.error = "Silahkan isi username anda"
+                et_username_signup.requestFocus()
             } else if (sEmail.equals("")) {
-                et_email.error = "Silahkan isi email anda"
-                et_email.requestFocus()
+                et_email_signup.error = "Silahkan isi email anda"
+                et_email_signup.requestFocus()
             } else if (sPassword.equals("")) {
-                et_password.error = "Silahkan isi password anda"
-                et_password.requestFocus()
+                et_password_signup.error = "Silahkan isi password anda"
+                et_password_signup.requestFocus()
             }  else if (!(sPassword.equals(sPassword2))) {
-                et_password2.error = "Password tidak match"
-                et_password2.requestFocus()
+                et_password2_signup.error = "Password tidak match"
+                et_password2_signup.requestFocus()
             } else {
                 var statusUsername = sUsername.indexOf(".")
                 if (statusUsername >= 0) {
-                    et_username.error = "Silahkan tulis Username Anda tanpa ."
-                    et_username.requestFocus()
+                    et_username_signup.error = "Silahkan tulis Username Anda tanpa ."
+                    et_username_signup.requestFocus()
                 } else {
                     saveUsername(sUsername, sPassword, sNama, sEmail)
                 }

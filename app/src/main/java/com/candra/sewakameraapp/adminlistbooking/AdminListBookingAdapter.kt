@@ -1,4 +1,4 @@
-package com.candra.sewakameraapp.booking
+package com.candra.sewakameraapp.adminlistbooking
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,27 +8,28 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.candra.sewakameraapp.R
+import com.candra.sewakameraapp.booking.Booking2
 import java.text.NumberFormat
 import java.util.*
 
-class ListBookingAdapter(private var data: List<Booking2>,
-                         private val listener: (Booking2) -> Unit)
-    : RecyclerView.Adapter<ListBookingAdapter.LeagueViewHolder>() {
+class AdminListBookingAdapter(private var data: List<Booking2>,
+                              private val listener: (Booking2) -> Unit)
+    : RecyclerView.Adapter<AdminListBookingAdapter.LeagueViewHolder>() {
 
     lateinit var ContextAdapter : Context
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): ListBookingAdapter.LeagueViewHolder {
+    ): AdminListBookingAdapter.LeagueViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         ContextAdapter = parent.context
-        val inflatedView: View = layoutInflater.inflate(R.layout.row_item_booking, parent, false)
+        val inflatedView: View = layoutInflater.inflate(R.layout.row_item_booking_admin, parent, false)
 
-        return ListBookingAdapter.LeagueViewHolder(inflatedView)
+        return AdminListBookingAdapter.LeagueViewHolder(inflatedView)
     }
 
-    override fun onBindViewHolder(holder: ListBookingAdapter.LeagueViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: AdminListBookingAdapter.LeagueViewHolder, position: Int) {
         holder.bindItem(data[position], listener, ContextAdapter, position)
     }
 
@@ -36,11 +37,9 @@ class ListBookingAdapter(private var data: List<Booking2>,
 
     class LeagueViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-        private val ivstatus: ImageView = view.findViewById(R.id.iv_status_item_booking)
-        private val tvtglin: TextView = view.findViewById(R.id.tv_tgl_in_item_booking)
-        private val tvtglout: TextView = view.findViewById(R.id.tv_tgl_out_item_booking)
-        private val tvharga: TextView = view.findViewById(R.id.tv_harga_item_booking)
-        private val tvjumlahitem: TextView = view.findViewById(R.id.tv_jumlah_item_booking)
+        private val ivstatus: ImageView = view.findViewById(R.id.iv_status)
+        private val tvkode: TextView = view.findViewById(R.id.tv_kode_as)
+        private val tvstatus: TextView = view.findViewById(R.id.tv_status)
 
         fun bindItem(data: Booking2, listener: (Booking2) -> Unit, context : Context, position : Int) {
 
@@ -49,10 +48,8 @@ class ListBookingAdapter(private var data: List<Booking2>,
 
             var harga =  formatRupiah.format(data.total).toString()
 
-            tvjumlahitem.text = data.jumlah_item.toString() + " Items"
-            tvharga.text = harga.substring(0, harga.length - 3)
-            tvtglin.text = data.tgl_in
-            tvtglout.text = data.tgl_out
+            tvkode.text = data.key
+            tvstatus.text = data.status
 
             if (data.status.equals("pending")) {
                 ivstatus.setImageResource(R.drawable.ic_pending_yellow)

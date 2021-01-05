@@ -37,7 +37,7 @@ class ListBookingFragment : Fragment() {
 
         mDatabase = FirebaseDatabase.getInstance().getReference("booking")
 
-        rc_list_booking.layoutManager = LinearLayoutManager(context)
+        rc_list_fragment_booking.layoutManager = LinearLayoutManager(context)
 
         getData()
     }
@@ -70,7 +70,7 @@ class ListBookingFragment : Fragment() {
 
                 }
 
-                rc_list_booking.adapter = ListBookingAdapter(dataList) {
+                rc_list_fragment_booking.adapter = ListBookingAdapter(dataList) {
                     val intent = Intent(context, DetailBookingActivity::class.java).putExtra("detailBooking", it)
                     startActivity(intent)
                 }

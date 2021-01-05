@@ -59,20 +59,20 @@ class FormTambahbarangActivity : AppCompatActivity() {
             idProduk = data.id!!
             gambarrrr = data.gambar!!
 
-            et_nama.setText(data.nama)
-            et_jenis.setText(data.jenis)
-            et_ket.setText(data.keterangan)
-            et_harga.setText(data.harga.toString())
-            et_stok.setText(data.stok.toString())
+            et_nama_form_tambah_barang_admin.setText(data.nama)
+            et_jenis_form_tambah_barang_admin.setText(data.jenis)
+            et_ket_form_tambah_barang_admin.setText(data.keterangan)
+            et_harga_form_tambah_barang_admin.setText(data.harga.toString())
+            et_stok_form_tambah_barang_admin.setText(data.stok.toString())
 
             Glide.with(this)
                 .load(data.gambar)
-                .into(iv_gambar_produk)
+                .into(iv_gambar_form_tambah_barang_admin)
 
             btn_add.setImageResource(R.drawable.ic_cancel_red)
 
             textView54.text = "Edit Barang"
-            btn_tambah.setText("Perbaruhi")
+            btn_tambah_form_tambah_barang_admin.setText("Perbaruhi")
         }
 
         mDatabase = FirebaseDatabase.getInstance().getReference()
@@ -80,33 +80,33 @@ class FormTambahbarangActivity : AppCompatActivity() {
         firebaseStore = FirebaseStorage.getInstance()
         storageReference = FirebaseStorage.getInstance().reference
 
-        iv_back12.setOnClickListener {
+        iv_back_form_tambah_barang_admin.setOnClickListener {
             finish()
         }
 
-        btn_tambah.setOnClickListener {
-            nama = et_nama.text.toString()
-            jenis = et_jenis.text.toString()
-            keterangan = et_ket.text.toString()
+        btn_tambah_form_tambah_barang_admin.setOnClickListener {
+            nama = et_nama_form_tambah_barang_admin.text.toString()
+            jenis = et_jenis_form_tambah_barang_admin.text.toString()
+            keterangan = et_ket_form_tambah_barang_admin.text.toString()
 
             if (nama.equals("")) {
-                et_nama.error = "Silahkan isi nama produk"
-                et_nama.requestFocus()
+                et_nama_form_tambah_barang_admin.error = "Silahkan isi nama produk"
+                et_nama_form_tambah_barang_admin.requestFocus()
             } else if (jenis.equals("")) {
-                et_jenis.error = "Silahkan isi jenis barang"
-                et_jenis.requestFocus()
+                et_jenis_form_tambah_barang_admin.error = "Silahkan isi jenis barang"
+                et_jenis_form_tambah_barang_admin.requestFocus()
             }else if (keterangan.equals("")) {
-                et_ket.error = "Silahkan isi keterangan produk"
-                et_ket.requestFocus()
-            }else if (et_harga.text.toString().equals("")) {
-                et_harga.error = "Silahkan isi harga produk"
-                et_harga.requestFocus()
-            }else if (et_stok.text.toString().equals("")) {
-                et_harga.error = "Silahkan isi stok produk"
-                et_harga.requestFocus()
+                et_ket_form_tambah_barang_admin.error = "Silahkan isi keterangan produk"
+                et_ket_form_tambah_barang_admin.requestFocus()
+            }else if (et_harga_form_tambah_barang_admin.text.toString().equals("")) {
+                et_harga_form_tambah_barang_admin.error = "Silahkan isi harga produk"
+                et_harga_form_tambah_barang_admin.requestFocus()
+            }else if (et_stok_form_tambah_barang_admin.text.toString().equals("")) {
+                et_harga_form_tambah_barang_admin.error = "Silahkan isi stok produk"
+                et_harga_form_tambah_barang_admin.requestFocus()
             } else {
-                harga = et_harga.text.toString().toInt()
-                stok = et_stok.text.toString().toInt()
+                harga = et_harga_form_tambah_barang_admin.text.toString().toInt()
+                stok = et_stok_form_tambah_barang_admin.text.toString().toInt()
 
                 prosesUpload()
             }
@@ -116,7 +116,7 @@ class FormTambahbarangActivity : AppCompatActivity() {
             if (statusAdd) {
                 statusAdd = false
                 btn_add.setImageResource(R.drawable.ic_btn_plus)
-                iv_gambar_produk.setImageResource(R.drawable.unnamed_image)
+                iv_gambar_form_tambah_barang_admin.setImageResource(R.drawable.unnamed_image)
             }else {
                 launchGallery()
             }
@@ -138,7 +138,7 @@ class FormTambahbarangActivity : AppCompatActivity() {
 
             Glide.with(this)
                 .load(filePath)
-                .into(iv_gambar_produk)
+                .into(iv_gambar_form_tambah_barang_admin)
 
             btn_add.setImageResource(R.drawable.ic_cancel_red)
 
