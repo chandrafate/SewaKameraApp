@@ -6,12 +6,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.candra.sewakameraapp.keranjang.KeranjangActivity
 import com.candra.sewakameraapp.kategori.MenuKategoriActivity
 import com.candra.sewakameraapp.R
+import com.candra.sewakameraapp.adminpromo.Promo
+import com.candra.sewakameraapp.barang.Barang
+import com.candra.sewakameraapp.barang.DetailBarangActivity
 import com.candra.sewakameraapp.kategori.Kategori
 import com.candra.sewakameraapp.utils.Preferences
+import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
@@ -19,6 +24,10 @@ class HomeFragment : Fragment() {
     lateinit var preferences: Preferences
 
     private var dataList = ArrayList<Kategori>()
+    private var barangList = ArrayList<Barang>()
+    private var promoList = ArrayList<Promo>()
+
+    lateinit var mDatabase: DatabaseReference
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,6 +42,8 @@ class HomeFragment : Fragment() {
 
         preferences = Preferences(activity!!.applicationContext)
 
+        mDatabase = FirebaseDatabase.getInstance().getReference()
+
         tv_nama_home.setText(preferences.getValues("nama"))
 
         btn_kategori_home.setOnClickListener {
@@ -45,6 +56,9 @@ class HomeFragment : Fragment() {
 
 
         loadDummyData()
+
+        rc_item_promo_home.layoutManager = LinearLayoutManager(context)
+        getDataPromo()
     }
 
 
@@ -90,5 +104,34 @@ class HomeFragment : Fragment() {
         initListener()
     }
 
+    private fun getDataPromo() {
+        mDatabase.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                barangList.clear()
+                promoList.clear()
+
+                for (getdatasnapsot in snapshot.child("diskon").children) {
+
+                    val promo = getdatasnapsot.getValue(Promo::class.java)
+                    for (getdatasnapsot2 in snapshot.child("produk").children) {
+                        val barang = getdatasnapsot2.getValue(Barang::class.java)
+
+                        if (promo!!.id.equals(barang!!.id)) {
+                            barangList.add(barang)
+                            promoList.add(promo)
+                        }
+                    }
+                }
+                rc_item_promo_home.adapter = ListPromoAdapter(barangList, promoList) {
+                    startActivity(Intent(context, DetailBarangActivity::class.java).putExtra("detailitem", it))
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(context, error.message, Toast.LENGTH_SHORT).show()
+            }
+
+        })
+    }
 
 }
