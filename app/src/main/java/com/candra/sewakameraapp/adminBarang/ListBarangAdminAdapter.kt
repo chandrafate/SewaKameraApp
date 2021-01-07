@@ -13,9 +13,7 @@ import com.candra.sewakameraapp.barang.Barang
 import java.text.NumberFormat
 import java.util.*
 
-class ListBarangAdminAdapter(private var data: List<Barang>,
-                             private val listener: (Barang) -> Unit)
-    : RecyclerView.Adapter<ListBarangAdminAdapter.LeagueViewHolder>() {
+class ListBarangAdminAdapter(private var data: List<Barang>, private val listener: (Barang) -> Unit) : RecyclerView.Adapter<ListBarangAdminAdapter.LeagueViewHolder>() {
 
     lateinit var ContextAdapter : Context
 

@@ -9,9 +9,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.candra.sewakameraapp.R
 import com.candra.sewakameraapp.admin.AdminActivity
+import com.candra.sewakameraapp.adminBarang.ListBarangAdminAdapter
 import com.candra.sewakameraapp.barang.Barang
 import com.candra.sewakameraapp.booking.Booking2
-import com.candra.sewakameraapp.booking.ListItemBookingAdapter
 import com.candra.sewakameraapp.keranjang.Keranjang
 import com.candra.sewakameraapp.transaksi.AdminDetailTransaksiActivity
 import com.candra.sewakameraapp.transaksi.Transaksi
@@ -47,7 +47,7 @@ class AdminDetailBookingActivity : AppCompatActivity() {
         tv_tgl_out_detail_booking_admin.text = data.tgl_out
         tv_hari_detail_booking_admin.text = hitungHari(data.tgl_in!!, data.tgl_out!!)
         tv_status_detail_booking_admin.text = data.status
-        tv_denda_detail_booking_admin.text = formatHarga(data.denda!!).substring(0, formatHarga(data.denda!!).length - 3)
+        tv_denda_detail_booking_admin.text = hitungDenda(data.tgl_out!!, data.total!!)
         tv_total_detail_booking_admin.text = formatHarga(data.total!!).substring(0, formatHarga(data.total!!).length - 3)
 
         rc_list_detail_booking_admin.layoutManager = LinearLayoutManager(this)
@@ -113,7 +113,7 @@ class AdminDetailBookingActivity : AppCompatActivity() {
                         }
                     }
                 }
-                rc_list_detail_booking_admin.adapter = ListItemBookingAdapter(barang) {
+                rc_list_detail_booking_admin.adapter = ListBarangAdminAdapter(barang) {
                 }
             }
 
@@ -244,5 +244,20 @@ class AdminDetailBookingActivity : AppCompatActivity() {
             }
 
         })
+    }
+
+    private fun hitungDenda(tglout: String, total: Int): String {
+        val skrang = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(Date())
+
+        val format = SimpleDateFormat("dd/MM/yyyy")
+        val days = TimeUnit.DAYS.convert(
+            format.parse(skrang).getTime() -
+                    format.parse(tglout).getTime(),
+            TimeUnit.MILLISECONDS
+        )
+
+        val totall: Int = total * days.toInt()
+
+        return formatHarga(totall).substring(0, formatHarga(totall).length - 3)
     }
 }

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/background_dialog"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_back_dialog_promo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/ic_close"/>
+
+
+    <TextView
+        android:id="@+id/tvsdcdxfsdsd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ausbc"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Set Promo"
+        android:textColor="@color/blue_background"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/et_input_harga_dialog_promo"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:layout_below="@+id/tvsdcdxfsdsd"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/input_field"
+        android:drawableStart="@drawable/ic_local_atm"
+        android:drawablePadding="10dp"
+        android:hint="Harga Promo"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/et_input_tgl_input_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:layout_below="@+id/et_input_harga_dialog_promo"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/input_field"
+        android:drawableStart="@drawable/ic_calendar"
+        android:drawablePadding="10dp"
+        android:editable="false"
+        android:hint="Batas Tanggal" />
+
+    <Button
+        android:id="@+id/btn_submit_input_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_input_tgl_input_dialog"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/btn_secondary"
+        android:text="Tambah"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+</RelativeLayout>

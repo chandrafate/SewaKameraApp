@@ -71,6 +71,7 @@ class KeranjangActivity : AppCompatActivity() {
                 this,
                 DatePickerDialog.OnDateSetListener { view, stahun, sbulan, shari ->
                     et_tgl_in_keranjang.setText("$shari-$sbulan-$stahun")
+
                     tanggalIn = "$shari/$sbulan/$stahun"
 
                     savehari = shari
