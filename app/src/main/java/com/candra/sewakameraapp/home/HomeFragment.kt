@@ -14,6 +14,7 @@ import com.candra.sewakameraapp.R
 import com.candra.sewakameraapp.adminpromo.Promo
 import com.candra.sewakameraapp.barang.Barang
 import com.candra.sewakameraapp.barang.DetailBarangActivity
+import com.candra.sewakameraapp.barang.ListItemActivity
 import com.candra.sewakameraapp.kategori.Kategori
 import com.candra.sewakameraapp.utils.Preferences
 import com.google.firebase.database.*
@@ -23,7 +24,7 @@ class HomeFragment : Fragment() {
 
     lateinit var preferences: Preferences
 
-    private var dataList = ArrayList<Kategori>()
+    private var kategoriList = ArrayList<Kategori>()
     private var barangList = ArrayList<Barang>()
     private var promoList = ArrayList<Promo>()
 
@@ -54,62 +55,28 @@ class HomeFragment : Fragment() {
             startActivity(Intent(context, KeranjangActivity::class.java))
         }
 
-
-        loadDummyData()
-
         rc_item_promo_home.layoutManager = LinearLayoutManager(context)
-        getDataPromo()
-    }
 
-
-    private fun initListener() {
         rc_item_kategori_home.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        rc_item_kategori_home.adapter = KategoriAdapter(dataList) {
 
-        }
+        getData()
     }
 
 
-    private fun loadDummyData() {
-        dataList.add(
-            Kategori(
-                1,
-                "Kamera",
-                "https://d2pa5gi5n2e1an.cloudfront.net/webp/global/images/product/digitalcameras/Canon_EOS_600D_kit/Canon_EOS_600D_kit_L_1.jpg",
-
-                )
-        )
-        dataList.add(
-            Kategori(
-                2,
-                "Lensa",
-                "https://cdn.vox-cdn.com/thumbor/4-QplCl-YU_IkEbgwR6b3N72WQM=/1400x1050/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/21848910/fuji50.jpg"
-            )
-        )
-        dataList.add(
-            Kategori(
-                3,
-                "Action Cam",
-                "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//96/MTA-4851744/gopro_gopro_hero_8_action_cam_-_black_-garansi_resmi_tam-_full05_0dwje83.jpg"
-            )
-        )
-        dataList.add(
-            Kategori(
-                4,
-                "Flash Cam",
-                "https://www.tokocamzone.com/image/cache/Aksesoris%20lain/1506623419000_IMG_876946-600x666.jpg"
-            )
-        )
-
-        initListener()
-    }
-
-    private fun getDataPromo() {
+    private fun getData() {
         mDatabase.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 barangList.clear()
                 promoList.clear()
+                kategoriList.clear()
 
+//                get data kategori
+                for (getdatasnapsot in snapshot.child("kategori").children) {
+                    val kategori = getdatasnapsot.getValue(Kategori::class.java)
+                    kategoriList.add(kategori!!)
+                }
+
+//                get data promo
                 for (getdatasnapsot in snapshot.child("diskon").children) {
 
                     val promo = getdatasnapsot.getValue(Promo::class.java)
@@ -122,8 +89,14 @@ class HomeFragment : Fragment() {
                         }
                     }
                 }
+
+
                 rc_item_promo_home.adapter = ListPromoAdapter(barangList, promoList) {
                     startActivity(Intent(context, DetailBarangActivity::class.java).putExtra("detailitem", it))
+                }
+
+                rc_item_kategori_home.adapter = KategoriAdapter(kategoriList) {
+                    startActivity(Intent(context, ListItemActivity::class.java).putExtra("kategori", it))
                 }
             }
 

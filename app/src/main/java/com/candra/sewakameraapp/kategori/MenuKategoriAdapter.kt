@@ -37,10 +37,12 @@ class MenuKategoriAdapter(private var data: List<Kategori>,
 
     private val ivgambar: ImageView = view.findViewById(R.id.iv_gambar_item_menu_kategori)
     private val tvnama: TextView = view.findViewById(R.id.tv_nama_item_menu_kategori)
+    private val tvjumlah: TextView = view.findViewById(R.id.tv_jumlah_item_menu_kategori)
 
     fun bindItem(data: Kategori, listener: (Kategori) -> Unit, context : Context, position : Int) {
 
       tvnama.text = data.nama
+      tvjumlah.text = "${data.item} Items"
 
       Glide.with(context)
         .load(data.gambar)

@@ -2,13 +2,18 @@ package com.candra.sewakameraapp.adminBarang
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.candra.sewakameraapp.R
+import com.candra.sewakameraapp.barang.Barang
 import com.candra.sewakameraapp.kategori.Kategori
+import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_admin_barang.*
 
 class AdminKategoriBarangActivity : AppCompatActivity() {
+
+    lateinit var mDatabase: DatabaseReference
 
     private var dataList = ArrayList<Kategori>()
 
@@ -16,46 +21,58 @@ class AdminKategoriBarangActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin_barang)
 
-        rc_kategori_admin.layoutManager = LinearLayoutManager(this)
-        dummydata()
-        rc_kategori_admin.adapter = AdminKategoriAdapter(dataList) {
-            startActivity(Intent(this, AdminKelolaProdukActivity::class.java).putExtra("kategori", it))
-        }
+        mDatabase = FirebaseDatabase.getInstance().getReference()
 
         iv_back_5.setOnClickListener {
             finish()
         }
+
+        rc_kategori_admin.layoutManager = LinearLayoutManager(this)
+
+        getData()
     }
 
-    private fun dummydata() {
-        dataList.add(
-            Kategori(
-                1,
-                "Kamera",
-                "https://d2pa5gi5n2e1an.cloudfront.net/webp/global/images/product/digitalcameras/Canon_EOS_600D_kit/Canon_EOS_600D_kit_L_1.jpg",
+    private fun getData() {
+        mDatabase.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                dataList.clear()
 
-                )
-        )
-        dataList.add(
-            Kategori(
-                2,
-                "Lensa",
-                "https://cdn.vox-cdn.com/thumbor/4-QplCl-YU_IkEbgwR6b3N72WQM=/1400x1050/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/21848910/fuji50.jpg"
-            )
-        )
-        dataList.add(
-            Kategori(
-                3,
-                "Action Cam",
-                "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//96/MTA-4851744/gopro_gopro_hero_8_action_cam_-_black_-garansi_resmi_tam-_full05_0dwje83.jpg"
-            )
-        )
-        dataList.add(
-            Kategori(
-                4,
-                "Flash Cam",
-                "https://www.tokocamzone.com/image/cache/Aksesoris%20lain/1506623419000_IMG_876946-600x666.jpg"
-            )
-        )
+                var item: Int = 0
+
+                for (getdatasnapsot in snapshot.child("kategori").children) {
+
+                    val kategori = getdatasnapsot.getValue(Kategori::class.java)
+
+                    item = 0
+
+                    for (getdatasnapsot2 in snapshot.child("produk").children) {
+                        val barang = getdatasnapsot2.getValue(Barang::class.java)
+
+                        if (kategori!!.id!!.equals(barang!!.kategori)) {
+                            item++
+                        }
+                    }
+
+                    kategori!!.item = item
+
+                    dataList.add(kategori)
+                }
+
+                rc_kategori_admin.adapter = AdminKategoriAdapter(dataList) {
+                    startActivity(
+                        Intent(
+                            this@AdminKategoriBarangActivity,
+                            AdminKelolaProdukActivity::class.java
+                        ).putExtra("kategori", it)
+                    )
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(this@AdminKategoriBarangActivity, error.message, Toast.LENGTH_SHORT)
+                    .show()
+            }
+
+        })
     }
 }

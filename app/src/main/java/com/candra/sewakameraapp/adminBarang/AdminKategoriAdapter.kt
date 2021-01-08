@@ -38,10 +38,12 @@ class AdminKategoriAdapter(private var data: List<Kategori>,
 
         private val ivkategori: ImageView = view.findViewById(R.id.iv_gambar_item_kategori_admin)
         private val tvkategori: TextView = view.findViewById(R.id.tv_nama_item_kategori_admin)
+        private val tvjumlah: TextView = view.findViewById(R.id.tv_jumlah_item_kategori_admin)
 
         fun bindItem(data: Kategori, listener: (Kategori) -> Unit, context : Context, position : Int) {
 
             tvkategori.text = data.nama
+            tvjumlah.text = "${data.item} Items"
 
             Glide.with(context)
                 .load(data.gambar)
