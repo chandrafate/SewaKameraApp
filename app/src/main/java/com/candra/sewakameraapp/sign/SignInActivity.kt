@@ -31,6 +31,9 @@ class SignInActivity : AppCompatActivity() {
         mDatabase = FirebaseDatabase.getInstance().getReference()
         preferences = Preferences(this)
 
+        //                        auto skip intro
+        preferences.setValues("intro", "sudah")
+
         //        cek jika sudah login
         if (preferences.getValues("login").equals("member")) {
             finishAffinity()

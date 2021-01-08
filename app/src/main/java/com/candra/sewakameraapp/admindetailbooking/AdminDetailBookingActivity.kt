@@ -256,7 +256,14 @@ class AdminDetailBookingActivity : AppCompatActivity() {
             TimeUnit.MILLISECONDS
         )
 
-        val totall: Int = total * days.toInt()
+        val totall: Int
+
+        if (days > 0) {
+            totall = total * days.toInt()
+        } else {
+            totall = 0
+        }
+
 
         return formatHarga(totall).substring(0, formatHarga(totall).length - 3)
     }

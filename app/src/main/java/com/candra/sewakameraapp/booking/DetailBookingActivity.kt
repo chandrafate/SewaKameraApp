@@ -61,7 +61,6 @@ class DetailBookingActivity : AppCompatActivity() {
         val data = intent.getParcelableExtra<Booking2>("detailBooking")
 
         mDatabase = FirebaseDatabase.getInstance().getReference()
-//        mDatabase = FirebaseDatabase.getInstance().getReference("produk")
         mDatabase2 = FirebaseDatabase.getInstance().getReference("booking")
         mDatabase3 = FirebaseDatabase.getInstance().getReference("transaksi")
 
@@ -76,8 +75,7 @@ class DetailBookingActivity : AppCompatActivity() {
 
         tv_tgl_detail_booking.text = tglin + " - " + data?.tgl_out
         tv_hari_detail_booking.text = data!!.tgl_in?.let { data!!.tgl_out?.let { it1 -> hitungHari(it, it1) } }
-        tv_denda_detail_booking.text =
-            "+" + formatHarga(data.denda!!).substring(0, formatHarga(data.denda!!).length - 3)
+        tv_denda_detail_booking.text = hitungDenda(data.tgl_out!!, data.total!!)
         tv_total_detail_booking.text =
             formatHarga(data.total!!).substring(0, formatHarga(data.total!!).length - 3)
 
@@ -381,5 +379,26 @@ class DetailBookingActivity : AppCompatActivity() {
                 TODO("Not yet implemented")
             }
         })
+    }
+
+    private fun hitungDenda(tglout: String, total: Int): String {
+        val skrang = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(Date())
+
+        val format = SimpleDateFormat("dd/MM/yyyy")
+        val days = TimeUnit.DAYS.convert(
+            format.parse(skrang).getTime() -
+                    format.parse(tglout).getTime(),
+            TimeUnit.MILLISECONDS
+        )
+
+        val totall: Int
+
+        if (days > 0) {
+            totall = total * days.toInt()
+        } else {
+            totall = 0
+        }
+
+        return formatHarga(totall).substring(0, formatHarga(totall).length - 3)
     }
 }

@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
@@ -19,12 +18,12 @@ import java.util.*
 
 class IntroActivity : AppCompatActivity() {
 
+
     private var screenPager: ViewPager? = null
     var introViewPagerAdapter: IntroViewPagerAdapter? = null
     var tabIndicator: TabLayout? = null
     var btnNext: TextView? = null
     var position = 0
-    var btnGetStarted: Button? = null
     var btnAnim: Animation? = null
     var tvSkip: TextView? = null
 
@@ -32,9 +31,9 @@ class IntroActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_intro)
 
+
         // ini views
         btnNext = findViewById(R.id.tv_next)
-        btnGetStarted = findViewById(R.id.btn_get_started)
         tabIndicator = findViewById(R.id.tab_indicator)
         btnAnim = AnimationUtils.loadAnimation(applicationContext, R.anim.button_animation)
         tvSkip = findViewById(R.id.tv_skip)
@@ -56,7 +55,7 @@ class IntroActivity : AppCompatActivity() {
                 "Cek Barang Tersedia",
                 "Lebih mudah mengetahui\n" +
                         "produk kamera yang tersedia",
-                R.drawable.fruitsintro
+                R.drawable.pic_board1
             )
         )
         mList.add(
@@ -64,10 +63,16 @@ class IntroActivity : AppCompatActivity() {
                 "Harga Menarik",
                 "Dapatkan harga khusus\n" +
                         "untuk member",
-                R.drawable.vegintro
+                R.drawable.pic_board2
             )
         )
-        mList.add(ScreenItem("Booking", "langsung booking di aplikasi\nke toko tinggal ambil", R.drawable.img2))
+        mList.add(
+            ScreenItem(
+                "Booking",
+                "langsung booking di aplikasi\nke toko tinggal ambil",
+                R.drawable.pic_board3
+            )
+        )
 
 
         // setup viewpager
@@ -79,7 +84,7 @@ class IntroActivity : AppCompatActivity() {
         tabIndicator!!.setupWithViewPager(screenPager)
 
         // Get Started button click listener
-        btnGetStarted!!.setOnClickListener(View.OnClickListener {
+        btn_login!!.setOnClickListener(View.OnClickListener {
             val mainActivity = Intent(applicationContext, SignInActivity::class.java)
             startActivity(mainActivity)
             savePrefsData()
@@ -95,13 +100,13 @@ class IntroActivity : AppCompatActivity() {
                 unloadLastScreen()
                 position++
                 screenPager!!.setCurrentItem(position)
-            }else if (position == mList.size - 1) { // when we rech to the last screen
+            } else if (position == mList.size - 1) { // when we rech to the last screen
                 loaddLastScreen()
             }
 
             if (position > 0) {
                 tv_pref.visibility = View.VISIBLE
-            }else if (position == 0) {
+            } else if (position == 0) {
                 tv_pref.visibility = View.INVISIBLE
             }
         })
@@ -110,7 +115,7 @@ class IntroActivity : AppCompatActivity() {
             unloadLastScreen()
             if (position > 0) {
                 tv_pref.visibility = View.VISIBLE
-            }else if (position == 0) {
+            } else if (position == 0) {
                 tv_pref.visibility = View.INVISIBLE
             }
 
@@ -139,7 +144,7 @@ class IntroActivity : AppCompatActivity() {
 
                 if (tab.position > 0) {
                     tv_pref.visibility = View.VISIBLE
-                }else if (position == 0) {
+                } else if (position == 0) {
                     tv_pref.visibility = View.INVISIBLE
                 }
             }

@@ -72,10 +72,10 @@ class KeranjangActivity : AppCompatActivity() {
                 DatePickerDialog.OnDateSetListener { view, stahun, sbulan, shari ->
                     et_tgl_in_keranjang.setText("$shari-$sbulan-$stahun")
 
-                    tanggalIn = "$shari/$sbulan/$stahun"
+                    tanggalIn = "$shari/${sbulan+1}/$stahun"
 
                     savehari = shari
-                    savebulan = sbulan
+                    savebulan = sbulan+1
                     savetahun = stahun
                 },
                 tahun,
@@ -90,8 +90,8 @@ class KeranjangActivity : AppCompatActivity() {
             val dpdIn = DatePickerDialog(
                 this,
                 DatePickerDialog.OnDateSetListener { view, stahun, sbulan, shari ->
-                    et_tgl_out_keranjang.setText("$shari-$sbulan-$stahun")
-                    tanggalOut = "$shari/$sbulan/$stahun"
+                    et_tgl_out_keranjang.setText("$shari-${sbulan+1}-$stahun")
+                    tanggalOut = "$shari/${sbulan+1}/$stahun"
 
                     hitungHari(tanggalIn, tanggalOut)
 

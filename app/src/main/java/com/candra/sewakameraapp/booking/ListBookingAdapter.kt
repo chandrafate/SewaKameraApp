@@ -9,7 +9,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.candra.sewakameraapp.R
 import java.text.NumberFormat
+import java.text.SimpleDateFormat
 import java.util.*
+import java.util.concurrent.TimeUnit
 
 class ListBookingAdapter(private var data: List<Booking2>,
                          private val listener: (Booking2) -> Unit)
@@ -54,12 +56,22 @@ class ListBookingAdapter(private var data: List<Booking2>,
             tvtglin.text = data.tgl_in
             tvtglout.text = data.tgl_out
 
+//            cek telat
+            val skrang = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(Date())
+
+            val format = SimpleDateFormat("dd/MM/yyyy")
+            val days = TimeUnit.DAYS.convert(
+                format.parse(skrang).getTime() -
+                        format.parse(data.tgl_out).getTime(),
+                TimeUnit.MILLISECONDS
+            )
+
             if (data.status.equals("pending")) {
                 ivstatus.setImageResource(R.drawable.ic_pending_yellow)
-            } else if (data.status.equals("success")) {
-                ivstatus.setImageResource(R.drawable.ic_success_green)
-            }else if (data.status.equals("belum dikembalikan")) {
+            } else if (data.status.equals("success") && days > 0) {
                 ivstatus.setImageResource(R.drawable.ic_warning_red)
+            }else if (data.status.equals("success")) {
+                ivstatus.setImageResource(R.drawable.ic_success_green)
             }else if (data.status.equals("ditolak")) {
                 ivstatus.setImageResource(R.drawable.ic_cancel_red)
             }

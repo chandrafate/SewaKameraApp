@@ -25,6 +25,9 @@ class SignUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
 
+        //                        auto skip intro
+        preferences.setValues("intro", "sudah")
+
         mDatabase = FirebaseDatabase.getInstance().getReference("member")
         preferences = Preferences(this)
 
