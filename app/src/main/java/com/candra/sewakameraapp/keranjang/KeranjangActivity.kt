@@ -70,12 +70,12 @@ class KeranjangActivity : AppCompatActivity() {
             val dpdIn = DatePickerDialog(
                 this,
                 DatePickerDialog.OnDateSetListener { view, stahun, sbulan, shari ->
-                    et_tgl_in_keranjang.setText("$shari-$sbulan-$stahun")
+                    et_tgl_in_keranjang.setText("$shari-${sbulan+1}-$stahun")
 
                     tanggalIn = "$shari/${sbulan+1}/$stahun"
 
                     savehari = shari
-                    savebulan = sbulan+1
+                    savebulan = sbulan
                     savetahun = stahun
                 },
                 tahun,
@@ -97,8 +97,9 @@ class KeranjangActivity : AppCompatActivity() {
 
                     val localeID = Locale("in", "ID")
                     val formatRupiah = NumberFormat.getCurrencyInstance(localeID)
+                    val formatHarga = formatRupiah.format(totalHargaCheckout).toString()
 
-                    tv_total_keranjang.text = formatRupiah.format(totalHargaCheckout).toString()
+                    tv_total_keranjang.text = formatHarga.substring(0, formatHarga.length - 3)
 
                 },
                 savetahun,
@@ -174,6 +175,7 @@ class KeranjangActivity : AppCompatActivity() {
                     imageView3.visibility = View.INVISIBLE
                     textView14.visibility = View.INVISIBLE
                     textView15.visibility = View.INVISIBLE
+                    dockconstraintkeranjang.visibility = View.INVISIBLE
                 }
             }
 
@@ -195,7 +197,7 @@ class KeranjangActivity : AppCompatActivity() {
                         val produk = getdatasnapshot.getValue(Barang::class.java)
 
                         if (produk!!.id.equals(it.id)) {
-                            dataList.add(produk!!)
+                            dataList.add(produk)
                             totalHargaBarang += produk.harga!!
                         }
                     }

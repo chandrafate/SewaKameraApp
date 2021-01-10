@@ -69,7 +69,22 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_nama_member_fragment"
-            tools:text="Belum Di Verifikasi" />
+            android:text="Sudah Di Verifikasi" />
+
+        <TextView
+            android:id="@+id/tv_unverifed_member_fragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="50dp"
+            android:drawableStart="@drawable/ic_unverifed_member"
+            android:drawablePadding="8dp"
+            android:textColor="@color/light_blue"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_nama_member_fragment"
+            android:text="Belum Di Verifikasi" />
 
         <ImageView
             android:id="@+id/imageView14"
@@ -107,19 +122,26 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout5" />
+        app:layout_constraintTop_toBottomOf="@+id/rl_google_maps_fragment_member" />
 
     <RelativeLayout
-        android:id="@+id/relativeLayout5"
+        android:id="@+id/rl_google_maps_fragment_member"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
-        android:background="@color/gray"
+        android:background="@color/blue_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView33">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:src="@drawable/mapsrenkam"
+            android:scaleType="centerCrop"/>
 
     </RelativeLayout>
 
@@ -139,18 +161,21 @@
 
 
         <ImageView
+            android:id="@+id/iv_wa_fragment_member"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:src="@drawable/logo_whatsapp" />
 
         <ImageView
+            android:id="@+id/iv_fb_fragment_member"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:src="@drawable/logo_facebook" />
 
         <ImageView
+            android:id="@+id/iv_ig_fragment_member"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

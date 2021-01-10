@@ -4,11 +4,15 @@ import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import com.candra.sewakameraapp.R
@@ -18,6 +22,9 @@ import com.candra.sewakameraapp.keranjang.Keranjang
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_checkout.*
+import java.text.NumberFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class CheckoutActivity : AppCompatActivity() {
 
@@ -36,7 +43,18 @@ class CheckoutActivity : AppCompatActivity() {
 
         val booking = intent.getParcelableExtra<Booking>("booking")
 
-        tv_total_harga_checkout.text = booking!!.total.toString()
+        val localeID = Locale("in", "ID")
+        val formatRupiah = NumberFormat.getCurrencyInstance(localeID)
+        val formatHarga = formatRupiah.format(booking!!.total).toString()
+
+        tv_total_harga_checkout.text = formatHarga.substring(0, formatHarga.length - 3)
+
+        tv_copy.setOnClickListener {
+            val clipboardManager = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+            val clipData = ClipData.newPlainText("text", tv_norek.text)
+            clipboardManager.setPrimaryClip(clipData)
+            Toast.makeText(this, "Copied", Toast.LENGTH_LONG).show()
+        }
 
 
         iv_back_checkout.setOnClickListener {

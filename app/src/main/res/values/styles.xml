@@ -11,6 +11,20 @@
 
     <style name="AppTheme.noActionBar" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:forceDarkAllowed">false</item>
+        <item name="android:statusBarColor">@color/white_background</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <style name="AppTheme.noActionBar.sign" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:forceDarkAllowed">false</item>
+    </style>
+
+    <style name="AppTheme.noActionBar.splash" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/blue_background</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:forceDarkAllowed">false</item>
     </style>
 
 </resources>

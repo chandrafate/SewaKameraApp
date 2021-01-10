@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.candra.sewakameraapp.R
 import com.candra.sewakameraapp.barang.Barang
 import com.candra.sewakameraapp.keranjang.Keranjang
+import com.candra.sewakameraapp.keranjang.KeranjangAdapter
 import com.candra.sewakameraapp.transaksi.Transaksi
 import com.google.android.gms.tasks.Continuation
 import com.google.android.gms.tasks.Task
@@ -71,13 +72,12 @@ class DetailBookingActivity : AppCompatActivity() {
 
         tv_jumlah_detail_booking.text = data?.jumlah_item.toString() + " Items"
 
-        val tglin = data?.tgl_in?.substring(0, 2) ?: String()
-
-        tv_tgl_detail_booking.text = tglin + " - " + data?.tgl_out
-        tv_hari_detail_booking.text = data!!.tgl_in?.let { data!!.tgl_out?.let { it1 -> hitungHari(it, it1) } }
+        tv_tgl_in_detail_booking.text = data.tgl_in
+        tv_tgl_out_detail_booking.text = data.tgl_out
+        tv_hari_detail_booking.text = data.tgl_in?.let { data.tgl_out?.let { it1 -> hitungHari(it, it1) } }
+        tv_status_detail_booking.text = data.status
         tv_denda_detail_booking.text = hitungDenda(data.tgl_out!!, data.total!!)
-        tv_total_detail_booking.text =
-            formatHarga(data.total!!).substring(0, formatHarga(data.total!!).length - 3)
+        tv_total_detail_booking.text = formatHarga(data.total!!).substring(0, formatHarga(data.total!!).length - 3)
 
         iv_back_detail_booking.setOnClickListener {
             finish()
@@ -131,7 +131,7 @@ class DetailBookingActivity : AppCompatActivity() {
                             }
                         }
                     }
-                    rc_item_detail_booking.adapter = ListItemBookingAdapter(dataList) {
+                    rc_item_detail_booking.adapter = KeranjangAdapter(dataList) {
                     }
                 }
 
@@ -371,6 +371,7 @@ class DetailBookingActivity : AppCompatActivity() {
                     }
                 }
                 if (!ada) {
+                    tv_status_detail_booking.text = "Belum Konfirmasi Pembayaran"
                     btn_konfirm_qr_detail_booking.setText("Konfirmasi Pembayaran")
                 }
             }
@@ -395,6 +396,7 @@ class DetailBookingActivity : AppCompatActivity() {
 
         if (days > 0) {
             totall = total * days.toInt()
+            tv_status_detail_booking.text = "Belum Dikembalikan"
         } else {
             totall = 0
         }

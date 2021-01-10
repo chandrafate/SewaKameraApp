@@ -25,11 +25,12 @@ class SignUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
 
-        //                        auto skip intro
-        preferences.setValues("intro", "sudah")
-
         mDatabase = FirebaseDatabase.getInstance().getReference("member")
         preferences = Preferences(this)
+
+//                        auto skip intro
+        preferences.setValues("intro", "sudah")
+
 
         iv_back_sign_up.setOnClickListener {
             startActivity(Intent(this, SignInActivity::class.java))
@@ -106,7 +107,7 @@ class SignUpActivity : AppCompatActivity() {
                     preferences.setValues("gambar", "")
                     preferences.setValues("status", data.status.toString())
 //                        set auto login
-                    preferences.setValues("login", "ya")
+                    preferences.setValues("login", "member")
 
                     finishAffinity()
 

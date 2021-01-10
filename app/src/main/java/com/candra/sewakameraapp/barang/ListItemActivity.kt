@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.candra.sewakameraapp.R
 import com.candra.sewakameraapp.kategori.Kategori
+import com.candra.sewakameraapp.keranjang.KeranjangActivity
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_list_item.*
 
@@ -31,6 +32,10 @@ class ListItemActivity : AppCompatActivity() {
 
         iv_back_list_barang.setOnClickListener {
             finish()
+        }
+
+        iv_keranjang_kategori_barang.setOnClickListener {
+            startActivity(Intent(this, KeranjangActivity::class.java))
         }
 
 

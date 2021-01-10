@@ -14,8 +14,9 @@
         <RelativeLayout
             android:id="@+id/relativeLayout3"
             android:layout_width="match_parent"
-            android:layout_height="510dp"
+            android:layout_height="0dp"
             android:background="@drawable/background_produk"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_keterangan_detail_barang"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -41,7 +42,7 @@
             android:text="TextView"
             android:textAlignment="viewStart"
             android:textColor="@color/blue_background"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/iv_gambar_detail_barang" />
@@ -138,8 +139,8 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
             android:text="Keterangan"
-            android:textColor="@color/light_blue"
-            android:textSize="16sp"
+            android:textColor="@color/blue_background"
+            android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/relativeLayout2" />
@@ -150,10 +151,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginEnd="24dp"
+            android:paddingBottom="20dp"
             android:text="TextView"
             android:textAlignment="viewStart"
-            android:textColor="@color/light_blue"
-            android:textSize="16sp"
+            android:textColor="@color/blue_background"
+            android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/sdfc" />

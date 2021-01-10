@@ -26,6 +26,5 @@ class SuccessCheckoutActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-//        super.onBackPressed()
     }
 }

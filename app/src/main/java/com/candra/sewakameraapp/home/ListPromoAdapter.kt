@@ -50,9 +50,11 @@ class ListPromoAdapter(private var barang: List<Barang>, private var promo: List
 
             val localeID = Locale("in", "ID")
             val formatRupiah = NumberFormat.getCurrencyInstance(localeID)
+            val formatHarga = formatRupiah.format(data.harga).toString()
+            val formatHarga2 = formatRupiah.format(data2.harga).toString()
 
             tvnama.text = data.nama
-            tvharga.text = formatRupiah.format(data.harga).toString()
+            tvharga.text = formatHarga.substring(0, formatHarga.length - 3)
             tvtgl.text = data2.expired
             tvjenis.text = data.jenis
 
@@ -61,7 +63,7 @@ class ListPromoAdapter(private var barang: List<Barang>, private var promo: List
 
             tvhargapromo.apply {
                 paintFlags = paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
-                text = formatRupiah.format(data2.harga).toString()
+                text = formatHarga2.substring(0, formatHarga.length - 3)
             }
 
             Glide.with(context)

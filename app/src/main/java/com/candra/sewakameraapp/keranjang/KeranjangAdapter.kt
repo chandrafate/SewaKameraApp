@@ -46,15 +46,16 @@ class KeranjangAdapter(private var data: List<Barang>,
 
             val localeID = Locale("in", "ID")
             val formatRupiah = NumberFormat.getCurrencyInstance(localeID)
+            val formatHarga = formatRupiah.format(data.harga).toString()
 
             tvnama.text = data.nama
-            tvharga.text = formatRupiah.format(data.harga).toString()
+            tvharga.text = formatHarga.substring(0, formatHarga.length - 3)
 
 
 
             Glide.with(context)
                 .load(data.gambar)
-                .override(320, 300)
+                .override(300, 280)
                 .into(ivproduk);
 
             itemView.setOnClickListener {

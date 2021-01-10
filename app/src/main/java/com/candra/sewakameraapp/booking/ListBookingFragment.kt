@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.candra.sewakameraapp.R
+import com.candra.sewakameraapp.keranjang.KeranjangActivity
 import com.candra.sewakameraapp.utils.Preferences
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.fragment_list_booking.*
@@ -36,6 +37,10 @@ class ListBookingFragment : Fragment() {
         preferences = Preferences(activity!!.applicationContext)
 
         mDatabase = FirebaseDatabase.getInstance().getReference("booking")
+
+        iv_keranjang_list_booking.setOnClickListener {
+            startActivity(Intent(context, KeranjangActivity::class.java))
+        }
 
         rc_list_fragment_booking.layoutManager = LinearLayoutManager(context)
 

@@ -20,18 +20,17 @@
             android:id="@+id/cardview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="0dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
-            android:layout_marginBottom="0dp"
+            android:layout_marginBottom="10dp"
             app:cardCornerRadius="5dp"
             android:outlineSpotShadowColor="@color/white">
 
             <ImageView
                 android:id="@+id/iv_produk_keranjang"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:scaleType="centerCrop"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 tools:srcCompat="@tools:sample/avatars" />
         </androidx.cardview.widget.CardView>
 
@@ -39,24 +38,24 @@
             android:id="@+id/tv_nama_keranjang"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="0dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="25dp"
             android:layout_toEndOf="@+id/cardview"
             android:text="Photo"
             android:textColor="@color/blue_background"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/tv_harga_keranjang"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_nama_keranjang"
-            android:layout_marginStart="0dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
             android:layout_toEndOf="@+id/cardview"
             android:text="Rp. 50000"
             android:textColor="@color/pink_btn"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <TextView

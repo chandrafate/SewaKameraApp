@@ -46,11 +46,11 @@ class ListItemAdapter(private var data: List<Barang>,
 
             val localeID = Locale("in", "ID")
             val formatRupiah = NumberFormat.getCurrencyInstance(localeID)
+            val formatHarga = formatRupiah.format(data.harga).toString()
 
             tvnama.text = data.nama
             tvjenis.text = data.jenis
-            tvharga.text = formatRupiah.format(data.harga).toString()
-
+            tvharga.text = formatHarga.substring(0, formatHarga.length - 3)
 
 
             Glide.with(context)

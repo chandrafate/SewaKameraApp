@@ -36,6 +36,7 @@ class SignInActivity : AppCompatActivity() {
 
         //        cek jika sudah login
         if (preferences.getValues("login").equals("member")) {
+            syncMember(preferences.getValues("username").toString())
             finishAffinity()
 
             startActivity(Intent(this, HomeActivity::class.java))
@@ -160,5 +161,26 @@ class SignInActivity : AppCompatActivity() {
                 }
 
             })
+    }
+
+    private fun syncMember(username: String) {
+        mDatabase.child("member/$username").addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val member = snapshot.getValue(Member::class.java)
+
+                if (member != null) {
+                    preferences.setValues("email", member.email.toString())
+                    preferences.setValues("nama", member.nama.toString())
+                    preferences.setValues("status", member.status.toString())
+                    preferences.setValues("gambar", member.gambar.toString())
+                    preferences.setValues("password", member.password.toString())
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(this@SignInActivity, error.message, Toast.LENGTH_SHORT).show()
+            }
+
+        })
     }
 }

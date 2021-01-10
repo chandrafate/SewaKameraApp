@@ -47,6 +47,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_kode_as" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/dockconstraintkeranjang"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/background_dock_ket"
@@ -141,6 +142,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="32dp"
+                android:drawableStart="@drawable/ic_calendar"
+                android:drawablePadding="10dp"
                 android:text="Jumlah Hari"
                 android:textColor="@color/blue_background"
                 android:textSize="14sp"
@@ -165,6 +168,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="16dp"
+                android:drawableStart="@drawable/ic_local_atm"
+                android:drawablePadding="10dp"
                 android:text="Total Harga"
                 android:textColor="@color/blue_background"
                 android:textSize="18sp"

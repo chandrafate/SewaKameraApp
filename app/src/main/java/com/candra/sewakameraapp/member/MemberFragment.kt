@@ -1,16 +1,21 @@
 package com.candra.sewakameraapp.member
 
+import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.candra.sewakameraapp.R
 import com.candra.sewakameraapp.utils.Preferences
 import kotlinx.android.synthetic.main.fragment_member.*
+
 
 class MemberFragment : Fragment() {
 
@@ -34,9 +39,64 @@ class MemberFragment : Fragment() {
         tv_nama_member_fragment.setText(preferences.getValues("nama"))
 
         if (preferences.getValues("status").equals("ya")) {
-            tv_verifed_member_fragment.text = "Sudah Terverifikasi"
+            tv_verifed_member_fragment.visibility = View.VISIBLE
+            tv_unverifed_member_fragment.visibility = View.INVISIBLE
         } else {
-            tv_verifed_member_fragment.text = "Belum Diverifikasi"
+            tv_verifed_member_fragment.visibility = View.INVISIBLE
+            tv_unverifed_member_fragment.visibility = View.VISIBLE
+        }
+
+        iv_wa_fragment_member.setOnClickListener {
+            val contact = "+62 82123457042" // use country code with your phone number
+
+            val url = "https://api.whatsapp.com/send?phone=$contact"
+            try {
+                val pm = context!!.packageManager
+                pm.getPackageInfo("com.whatsapp", PackageManager.GET_ACTIVITIES)
+                val i = Intent(Intent.ACTION_VIEW)
+                i.data = Uri.parse(url)
+                startActivity(i)
+            } catch (e: PackageManager.NameNotFoundException) {
+                Toast.makeText(
+                    context,
+                    "Whatsapp app not installed in your phone",
+                    Toast.LENGTH_SHORT
+                ).show()
+                e.printStackTrace()
+            }
+        }
+
+        iv_ig_fragment_member.setOnClickListener {
+            val uri = Uri.parse("https://instagram.com/_u/chandrafate")
+            val likeIng = Intent(Intent.ACTION_VIEW, uri)
+
+            likeIng.setPackage("com.instagram.android")
+
+            try {
+                startActivity(likeIng)
+            } catch (e: ActivityNotFoundException) {
+                startActivity(
+                    Intent(
+                        Intent.ACTION_VIEW,
+                        Uri.parse("https://instagram.com")
+                    )
+                )
+            }
+        }
+
+        iv_fb_fragment_member.setOnClickListener {
+            val url = "https://facebook.com/chandrafate"
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse(url)
+            startActivity(intent)
+        }
+
+        rl_google_maps_fragment_member.setOnClickListener {
+
+            val url = "https://maps.app.goo.gl/wmM2QWn7yXDVs7yn7"
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse(url)
+            startActivity(intent)
         }
 
         iv_settings_member_fragment.setOnClickListener {
