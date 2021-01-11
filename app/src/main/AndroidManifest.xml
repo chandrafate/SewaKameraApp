@@ -21,7 +21,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.noActionBar">
-        <activity android:name=".adminpromo.TambahPromoActivity"></activity>
+        <activity android:name=".adminmember.DetailDataMemberVerifedActivity"></activity>
+        <activity android:name=".adminpromo.TambahPromoActivity" />
         <activity android:name=".adminpromo.AdminListPromoActivity" />
         <activity android:name=".adminlistbooking.AdminListBookingActivity" />
         <activity android:name=".adminmember.FormVerifikasiMemberActivity" />
@@ -30,29 +31,37 @@
         <activity android:name=".adminBarang.AdminKategoriBarangActivity" />
         <activity android:name=".transaksi.AdminDetailTransaksiActivity" />
         <activity android:name=".admindetailbooking.AdminDetailBookingActivity" />
-        <activity android:name=".admin.ScanQrActivity"/>
-        <activity android:name=".admin.AdminActivity"
-            android:theme="@style/AppTheme.noActionBar.splash"/>
-        <activity android:name=".intro.IntroActivity"
-            android:theme="@style/AppTheme.noActionBar.sign"/>
-        <activity android:name=".member.EditMemberActivity"
-            android:theme="@style/AppTheme.noActionBar.sign"/>
-        <activity android:name=".booking.SuccessKonfirmPembayaranActivity"/>
-        <activity android:name=".booking.DetailBookingActivity"/>
-        <activity android:name=".checkout.SuccessCheckoutActivity"
-            android:theme="@style/AppTheme.noActionBar.sign"/>
-        <activity android:name=".checkout.CheckoutActivity"/>
-        <activity android:name=".keranjang.KeranjangActivity"/>
-        <activity android:name=".barang.DetailBarangActivity"
-            android:theme="@style/AppTheme.noActionBar.sign"/>
-        <activity android:name=".barang.ListItemActivity"/>
-        <activity android:name=".kategori.MenuKategoriActivity"/>
-        <activity android:name=".HomeActivity"/>
-        <activity android:name=".sign.SignUpActivity"
-            android:theme="@style/AppTheme.noActionBar.sign"/>
-        <activity android:name=".sign.SignInActivity"
-            android:theme="@style/AppTheme.noActionBar.sign"/>
-        <activity android:name=".SplashScreenActivity"
+        <activity android:name=".admin.ScanQrActivity" />
+        <activity
+            android:name=".admin.AdminActivity"
+            android:theme="@style/AppTheme.noActionBar.splash" />
+        <activity
+            android:name=".intro.IntroActivity"
+            android:theme="@style/AppTheme.noActionBar.sign" />
+        <activity
+            android:name=".member.EditMemberActivity"
+            android:theme="@style/AppTheme.noActionBar.sign" />
+        <activity android:name=".booking.SuccessKonfirmPembayaranActivity" />
+        <activity android:name=".booking.DetailBookingActivity" />
+        <activity
+            android:name=".checkout.SuccessCheckoutActivity"
+            android:theme="@style/AppTheme.noActionBar.sign" />
+        <activity android:name=".checkout.CheckoutActivity" />
+        <activity android:name=".keranjang.KeranjangActivity" />
+        <activity
+            android:name=".barang.DetailBarangActivity"
+            android:theme="@style/AppTheme.noActionBar.sign" />
+        <activity android:name=".barang.ListItemActivity" />
+        <activity android:name=".kategori.MenuKategoriActivity" />
+        <activity android:name=".HomeActivity" />
+        <activity
+            android:name=".sign.SignUpActivity"
+            android:theme="@style/AppTheme.noActionBar.sign" />
+        <activity
+            android:name=".sign.SignInActivity"
+            android:theme="@style/AppTheme.noActionBar.sign" />
+        <activity
+            android:name=".SplashScreenActivity"
             android:theme="@style/AppTheme.noActionBar.splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

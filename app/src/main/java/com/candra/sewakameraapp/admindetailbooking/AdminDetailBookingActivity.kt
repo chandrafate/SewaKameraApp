@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.candra.sewakameraapp.R
 import com.candra.sewakameraapp.admin.AdminActivity
 import com.candra.sewakameraapp.adminBarang.ListBarangAdminAdapter
+import com.candra.sewakameraapp.adminmember.DetailDataMemberVerifedActivity
 import com.candra.sewakameraapp.barang.Barang
 import com.candra.sewakameraapp.booking.Booking2
 import com.candra.sewakameraapp.keranjang.Keranjang
@@ -58,6 +59,10 @@ class AdminDetailBookingActivity : AppCompatActivity() {
 
         btn_detail_tf_detail_booking_admin.setOnClickListener {
             detailTf(data.key!!)
+        }
+
+        btn_detail_verifikasi_detail_booking_admin.setOnClickListener {
+            startActivity(Intent(this, DetailDataMemberVerifedActivity::class.java).putExtra("username", data.username))
         }
 
         getData()

@@ -57,16 +57,19 @@ class AdminMemberFragment : Fragment() {
                     val builder = AlertDialog.Builder(context)
                     builder.setTitle("${it.nama}")
 
-                    val x = arrayOf("Verifikasi", "Hapus")
+                    val x = arrayOf("Verifikasi","Lihat Data", "Hapus")
                     builder.setItems(x) { dialog, which ->
                         when (which) {
                             0 -> {
                                 startActivity(Intent(context,FormVerifikasiMemberActivity::class.java).putExtra("verifikasi", it.username))
                             }
                             1 -> {
+                                startActivity(Intent(context,DetailDataMemberVerifedActivity::class.java).putExtra("username", it.username))
+                            }
+                            2 -> {
                                 val builder2 = AlertDialog.Builder(context)
                                 builder2.setCancelable(true)
-                                builder2.setTitle("Konfirmasi")
+                                builder2.setTitle("Menghapus Member")
                                 builder2.setMessage("Apakah Anda ingin menghapus")
                                 builder2.setPositiveButton("Tidak") { dialog, which -> }
                                 builder2.setNegativeButton("Ya") { dialog, which -> hapusMember(it) }

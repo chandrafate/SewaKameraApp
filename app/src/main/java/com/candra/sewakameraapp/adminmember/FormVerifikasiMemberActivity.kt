@@ -30,6 +30,9 @@ class FormVerifikasiMemberActivity : AppCompatActivity() {
     private var fileKtp: Uri? = null
     private var fileSim: Uri? = null
 
+    private var urlKtp: String = ""
+    private var urlSim: String = ""
+
     private var firebaseStore: FirebaseStorage? = null
     private var storageReference: StorageReference? = null
 
@@ -110,6 +113,7 @@ class FormVerifikasiMemberActivity : AppCompatActivity() {
 
 
                         ref?.downloadUrl?.addOnSuccessListener {
+                            urlKtp = it.toString()
                             progressDialog.dismiss()
                         }
                     }
@@ -118,22 +122,24 @@ class FormVerifikasiMemberActivity : AppCompatActivity() {
             progressDialog.setTitle("Upload Gambar SIM...")
             progressDialog.show()
 
-            ref = storageReference?.child("data_sim_member/$username")
-            uploadTask = ref?.putFile(fileSim!!)
+            var ref2 = storageReference?.child("data_sim_member/$username")
+            var uploadTask2 = ref2?.putFile(fileSim!!)
 
-            urlTask = uploadTask?.continueWithTask(Continuation<UploadTask.TaskSnapshot, Task<Uri>> { task ->
+            var urlTask2 = uploadTask2?.continueWithTask(Continuation<UploadTask.TaskSnapshot, Task<Uri>> { task ->
                 if (!task.isSuccessful) {
                     task.exception?.let {
                         throw it
                     }
                 }
-                return@Continuation ref?.downloadUrl
+                return@Continuation ref2?.downloadUrl
             })?.addOnCompleteListener { task ->
                 if (task.isSuccessful) {
 
 
-                    ref?.downloadUrl?.addOnSuccessListener {
+                    ref2?.downloadUrl?.addOnSuccessListener {
                         progressDialog.dismiss()
+                        urlSim = it.toString()
+                        setData(username, urlKtp, urlSim)
                         setStatus(username)
                     }
                 }
@@ -142,6 +148,18 @@ class FormVerifikasiMemberActivity : AppCompatActivity() {
         } else {
             Toast.makeText(this, "Silahkan Lengkapi Data Gambar", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun setData(username: String, ktp: String, sim: String) {
+        val memberVerifed = MemberVerifed()
+        memberVerifed.username = username
+        memberVerifed.nama = et_nama_form_verifikasi_member.text.toString()
+        memberVerifed.nohp = et_nohp_form_verifikasi_member.text.toString()
+        memberVerifed.alamat = et_alamat_form_verifikasi_member.text.toString()
+        memberVerifed.ktp = ktp
+        memberVerifed.sim = sim
+
+        mDatabase.child("data_verifikasi/$username").setValue(memberVerifed)
     }
 
     private fun setStatus(username: String) {

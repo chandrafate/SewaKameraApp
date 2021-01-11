@@ -50,6 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:layout_marginStart="24dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -58,7 +59,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/background_konfirm_detail"
+            android:background="@drawable/background_dock_ket"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -105,8 +106,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="24dp"
+                android:drawableStart="@drawable/ic_vpn_key_24px"
+                android:drawablePadding="5dp"
                 android:text="Kode Booking"
-                android:textColor="@color/white"
+                android:textColor="@color/blue_background"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -116,7 +119,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
                 android:textAlignment="textEnd"
-                android:textColor="@color/white"
+                android:textColor="@color/blue_background"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/textView23" />
 
@@ -126,7 +129,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
                 android:textAlignment="textEnd"
-                android:textColor="@color/white"
+                android:textColor="@color/blue_background"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/textView27" />
 
@@ -136,7 +139,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
                 android:textAlignment="textEnd"
-                android:textColor="@color/white"
+                android:textColor="@color/blue_background"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/textView39" />
 
@@ -146,7 +149,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
                 android:textAlignment="textEnd"
-                android:textColor="@color/white"
+                android:textColor="@color/blue_background"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/textView37" />
 
@@ -156,7 +159,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
                 android:textAlignment="textEnd"
-                android:textColor="@color/white"
+                android:textColor="@color/blue_background"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/textView38" />
 
@@ -166,7 +169,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
                 android:textAlignment="textEnd"
-                android:textColor="@color/white"
+                android:textColor="@color/blue_background"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/textView22" />
 
@@ -176,7 +179,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
                 android:textAlignment="textEnd"
-                android:textColor="@color/white"
+                android:textColor="@color/blue_background"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/textView40" />
 
@@ -186,7 +189,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
                 android:textAlignment="textEnd"
-                android:textColor="@color/white"
+                android:textColor="@color/colorAccent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/textView41" />
 
@@ -196,8 +199,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
                 android:textAlignment="textEnd"
-                android:textColor="@color/white"
+                android:textColor="@color/blue_background"
                 android:textSize="18sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/textView42" />
 
@@ -207,8 +211,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="8dp"
+                android:drawableStart="@drawable/ic_user_circle_24px"
+                android:drawablePadding="5dp"
                 android:text="Nama Lengkap"
-                android:textColor="@color/white"
+                android:textColor="@color/blue_background"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
@@ -218,8 +224,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="8dp"
+                android:drawableStart="@drawable/ic_username_24px"
+                android:drawablePadding="5dp"
                 android:text="Username"
-                android:textColor="@color/white"
+                android:textColor="@color/blue_background"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView27" />
 
@@ -229,8 +237,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="8dp"
+                android:drawableStart="@drawable/ic_calendar"
+                android:drawablePadding="5dp"
                 android:text="Tanggal Sewa"
-                android:textColor="@color/white"
+                android:textColor="@color/blue_background"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView39" />
 
@@ -240,8 +250,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="8dp"
+                android:drawableStart="@drawable/ic_calendar"
+                android:drawablePadding="5dp"
                 android:text="Tanggal Selesai"
-                android:textColor="@color/white"
+                android:textColor="@color/blue_background"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView37" />
 
@@ -251,8 +263,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="8dp"
+                android:drawableStart="@drawable/ic_time"
+                android:drawablePadding="5dp"
                 android:text="Total Hari"
-                android:textColor="@color/white"
+                android:textColor="@color/blue_background"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView38" />
 
@@ -262,8 +276,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="8dp"
+                android:drawableStart="@drawable/ic_info"
+                android:drawablePadding="5dp"
                 android:text="Status"
-                android:textColor="@color/white"
+                android:textColor="@color/blue_background"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView40" />
 
@@ -273,8 +289,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="8dp"
+                android:drawableStart="@drawable/ic_denda"
                 android:text="Denda"
-                android:textColor="@color/white"
+                android:textColor="@color/colorAccent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView22" />
 
@@ -284,9 +301,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="20dp"
+                android:drawablePadding="5dp"
                 android:text="Total"
-                android:textColor="@color/white"
+                android:textColor="@color/blue_background"
                 android:textSize="18sp"
+                app:drawableLeftCompat="@drawable/ic_local_atm"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView41" />
 
@@ -296,20 +315,35 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="20dp"
-                android:text="Lihat Detail Pembayaran"
-                android:textColor="@color/white"
+                android:text="Lihat Detail"
+                android:textColor="@color/blue_background"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView42" />
 
             <Button
                 android:id="@+id/btn_detail_tf_detail_booking_admin"
-                android:layout_width="50dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
                 android:background="@drawable/btn_tgl"
                 android:drawableStart="@drawable/ic_payment"
+                android:text="Transaksi"
+                android:textAllCaps="false"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView44" />
+
+            <Button
+                android:id="@+id/btn_detail_verifikasi_detail_booking_admin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/btn_tgl"
+                android:drawableStart="@drawable/ic_payment"
+                android:text="Data Member"
+                android:textAllCaps="false"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@+id/btn_detail_tf_detail_booking_admin"
                 app:layout_constraintTop_toTopOf="@+id/textView44" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
