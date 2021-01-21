@@ -47,6 +47,7 @@ class AdminHomeFragment : Fragment() {
     }
 
     private fun getDataDahsboard() {
+
         mDatabase.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 tv_total_barang_home_fragment.text = snapshot.child("produk").childrenCount.toString()
